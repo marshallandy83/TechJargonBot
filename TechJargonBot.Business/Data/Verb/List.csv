@@ -1,0 +1,211 @@
+root,presentParticiple,pastParticiple,thirdPersonSingular
+patch,patching,patched,patches
+resolve,resolving,resolved,resolves
+authenticate,authenticating,authenticated,authenticates
+install,installing,installed,installs
+invoke,invoking,invoked,invokes
+reinstall,reinstalling,reinstalled,reinstalls
+delete,deleting,deleted,deletes
+remove,removing,removed,removes
+refresh,refreshing,refreshed,refreshes
+flush,flushing,flushed,flushes
+revoke,revoking,revoked,revokes
+log in to,logging into,logged into,logs into
+query,querying,queried,queries
+restore,restoring,restored,restores
+grant permissions to,granting permissions to,granted permissions to,grants permissions to
+revoke permissions from,revoking permissions from,revoked permissions from,revokes permissions from
+boot,booting,booted,boots
+cache,caching,cached,caches
+flash,flashing,flashed,flashes
+diagnose,diagnosing,diagnosed,diagnoses
+randomise,randomising,randomised,randomises
+initialise,initialising,initialised,initialises
+track,tracking,tracked,tracks
+generate,generating,generated,generates
+load,loading,loaded,loads
+modify,modifying,modified,modifies
+configure,configuring,configured,configures
+dispose of,disposing of,disposed of,disposes of
+invalidate,invalidating,invalidated,invalidates
+code review,code reviewing,code reviewed,code reviews
+unzip,unzipping,unzipped,unzips
+convert,converting,converted,converts
+promote,promoting,promoted,promotes
+decouple,decoupling,decoupled,decouples
+branch,branching,branched,branches
+merge,merging,merged,merges
+quarantine,quarantining,quarantined,quarantines
+download,downloading,downloaded,downloads
+upload,uploading,uploaded,uploads
+anonymise,anonymising,anonymised,anonymises
+disable,disabling,disabled,disables
+enable,enabling,enabled,enables
+roll back,rolling back,rolled back,rolls back
+soft delete,soft deleting,soft deleted,soft deletes
+publish,publishing,published,publishes
+compile,compiling,compiled,compiles
+rebulk,rebulking,rebulked,rebulks
+check,checking,checked,checks
+adjust,adjusting,adjusted,adjusts
+print,printing,printed,prints
+deploy,deploying,deployed,deploys
+create,creating,created,creates
+clean up,cleaning up,cleaned up,cleans up
+collate,collating,collated,collates
+pause,pausing,paused,pauses
+override,overriding,overridden,overrides
+overwrite,overwriting,overwritten,overwrites
+insert,inserting,inserted,inserts
+format,formatting,formatted,formats
+terminate,terminating,terminated,terminates
+re-queue,re-queueing,re-queued,re-queues
+run,running,run,runs
+replace,replacing,replaced,replaces
+bypass,bypassing,bypassed,bypasses
+print,printing,printed,prints
+restart,restarting,restarted,restarts
+ping,pinging,pinged,pings
+upgrade,upgrading,upgraded,upgrades
+defragment,defragmenting,defragmented,defragments
+switch to,switching to,switched to,switches to
+mount,mounting,mounted,mounts
+profile,profiling,profiled,profiles
+trigger,triggering,triggered,triggers
+compress,compressing,compressed,compresses
+pull through,pulling through,pulled through,pulls through
+apply,applying,applied,applies
+request,requesting,requested,requests
+build,building,built,builds
+download everything from,downloading everything from,downloaded everything from,downloads everything from
+upload everything to,uploading everything to,uploaded everything to,uploads everything to
+wipe,wiping,wiped,wipes
+completely remove,completely removing,completely removed,completely removes
+destroy,destroying,destroyed,destroys
+delete everything from,deleting everything from,deleted everything from,deletes everything from
+tear down,tearing down,torn down,tears down
+design,designing,designed,designs
+call,calling,called,calls
+hover over,hovering over,hovered over,hovers over
+RDP onto,RDPing onto,RDPed onto,RDPs onto
+connect to,connecting to,connected to,connects to
+remote onto,remoting onto,remoted onto,remotes onto
+render,rendering,rendered,renders
+clean,cleaning,cleaned,cleans
+instantiate,instantiating,instantiated,instantiates
+decommission,decommissioning,decommissioned,decommissions
+dual boot,dual booting,dual booted,dual boots
+increase,increasing,increased,increases
+burn,burning,burned,burns
+decompress,decompressing,decompressed,decompresses
+hash,hashing,hashed,hashes
+archive,archiving,archived,archives
+disassemble,disassembling,disassembled,disassembles
+host,hosting,hosted,hosts
+do a Get Latest of,doing a Get Latest of,done a Get Latest of,does a Get Latest of
+test,testing,tested,tests
+rename,renaming,renamed,renames
+do a diff of,doing a diff of,done a diff of,does a diff of
+truncate,truncating,truncated,truncates
+sign out of,signing out of,signed out of,signs out of
+coallesce,coallescing,coallesced,coallesces
+create a new version of,creating a new version of,created a new version of,creates a new version of
+compromise,compromising,compromised,compromises
+comment out,commenting out,commented out,comments out
+grep,grepping,grepped,greps
+repolarise,repolarising,repolarised,repolarises
+calibrate,calibrating,calibrated,calibrates
+drill down into,drilling down into,drilled down into,drills down into
+propagate,propagating,propagated,propagates
+back up,backing up,backed up,backs up
+transpose,transposing,transposed,transposes
+stream,streaming,streamed,streams
+streamline,streamlining,streamlined,streamlines
+purge,purging,purged,purges
+fudge,fudging,fudged,fudges
+scrape,scraping,scraped,scrapes
+salt,salting,salted,salts
+reroute,rerouting,rerouted,reroutes
+integrate,integrating,integrated,integrates
+schedule,scheduling,scheduled,schedules
+mask,masking,masked,masks
+refine,refining,refined,refines
+cut,cutting,cut,cuts
+recycle,recycling,recycled,recycles
+stratify,stratifying,stratified,stratifies
+hack,hacking,hacked,hacks
+translate,translating,translated,translates
+brute force,brute forcing,brute forced,brute forces
+mock,mocking,mocked,mocks
+stub,stubbing,stubbed,stubs
+telnet onto,telnetting onto,telnetted onto,telnets onto
+lazy load,lazy loading,lazy loaded,lazy loads
+turn up the verbosity on,turning up the verbosity on,turned up the verbosity on,turns up the verbosity on
+ring-fence,ring-fencing,ring-fenced,ring-fences
+append,appending,appended,appends
+bit-shift,bit-shifting,bit-shifted,bit-shifts
+optimise,optimising,optimised,optimises
+change,changing,changed,changes
+swap,swapping,swapped,swaps
+reverse,reversing,reversed,reverses
+load balance,load balancing,load balanced,load balances
+nest,nesting,nested,nests
+degrade,degrading,degraded,degrades
+stress test,stress testing,stress tested,stress tests
+seal,sealing,sealed,seals
+encrypt,encrypting,encrypted,encrypts
+decrypt,decrypting,decrypted,decrypts
+smurf-name,smurf-naming,smurf-named,smurf-names
+memoize,memoizing,memoized,memoizes
+recurse,recursing,recursed,recurses
+fire and forget,firing and forgetting,fired and forgot,fires and forgets
+intercept,intercepting,intercepted,intercepts
+fake,faking,faked,fakes
+bind,binding,bound,binds
+action,actioning,actioned,actions
+add a reference to,adding a reference to,added a reference to,adds reference to
+expose,exposing,exposed,exposes
+trim,trimming,trimmed,trims
+flatten,flattening,flattened,flattens
+drop,dropping,dropped,drops
+replicate,replicating,replicated,replicates
+port,porting,ported,ports
+copy,copying,copied,copies
+paste,pasting,pasted,pastes
+reverse engineer,reverse engineering,reverse engineered,reverse engineers
+solidify,solidifying,solidified,solidifies
+consume,consuming,consumed,consumes
+box,boxing,boxed,boxes
+unbox,unboxing,unboxed,unboxes
+spin up,spinning up,spun up,spins
+overclock,overclocking,overclocked,overclocks
+google,googling,googled,googles
+upsert,upserting,upserted,upserts
+munge,munging,munged,munges
+deprecate,deprecating,deprecated,deprecates
+abstract,abstracting,abstracted,abstracts
+analyse,analysing,analysed,analyses
+modularise,modularising,modularised,modularises
+innovate,innovating,innovated,innovates
+encapsulate,encapsulating,encapsulated,encapsulates
+split,splitting,split,splits
+isolate,isolating,isolated,isolates
+invert,inverting,inverted,inverts
+nullify,nullifying,nullified,nullifies
+print out,printing out,printed out,prints out
+disrupt,disrupting,disrupted,disrupts
+improve,improving,improved,improves
+monitor,monitoring,monitored,monitors
+offset,offsetting,offseted,offsets
+aggregate,aggregating,aggregated,aggregates
+interrupt,interrupting,interrupted,interrupts
+dispatch,dispatching,dispatched,dispatches
+fully qualify,fully qualifying,fully qualified,fully qualifies
+hand roll,hand rolling,hand rolled,hand rolls
+deep dive into,deep diving into,deep dived into,deep dives into
+call out,calling out,called out,calls out
+solutionise,solutionising,solutionised,solutionises
+backport,backporting,backported,backports
+containerise,containerising,containerised,containerises
+transpile,transpiling,transpiled,transpiles
+cold start,cold starting,cold started,cold starts
