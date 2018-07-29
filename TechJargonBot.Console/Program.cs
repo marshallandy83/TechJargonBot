@@ -4,7 +4,7 @@ using System.Threading;
 using TechJargonBot.Business;
 using TechJargonBot.Business.Data;
 using Twitter;
-//test
+
 namespace TechJargonBot.Console
 {
 	class Program
