@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Tests", "Tech
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Console", "TechJargonBot.Console\TechJargonBot.Console.csproj", "{C7EA608C-31B8-4688-A923-F69CBB407811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twitter", "Twitter\Twitter.csproj", "{97155480-9260-465E-B729-611ABBC82511}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.DebugConsole", "TechJargonBot.DebugConsole\TechJargonBot.DebugConsole.csproj", "{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{C7EA608C-31B8-4688-A923-F69CBB407811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EA608C-31B8-4688-A923-F69CBB407811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EA608C-31B8-4688-A923-F69CBB407811}.Release|Any CPU.Build.0 = Release|Any CPU
-		{97155480-9260-465E-B729-611ABBC82511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{97155480-9260-465E-B729-611ABBC82511}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{97155480-9260-465E-B729-611ABBC82511}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{97155480-9260-465E-B729-611ABBC82511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
