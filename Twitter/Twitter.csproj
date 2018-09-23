@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OAuth\HeaderDataPopulator.cs" />
+    <Compile Include="OAuth\HeaderFactory.cs" />
     <Compile Include="TwitterApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

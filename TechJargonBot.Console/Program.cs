@@ -90,7 +90,7 @@ namespace TechJargonBot.Console
 			TwitterApi twitterApi,
 			String sentence)
 		{
-			await twitterApi.Tweet(sentence);
+			var response = await twitterApi.Tweet(sentence);
 		}
 	}
 }
