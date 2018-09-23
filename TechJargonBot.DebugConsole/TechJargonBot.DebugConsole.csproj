@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C7EA608C-31B8-4688-A923-F69CBB407811}</ProjectGuid>
+    <ProjectGuid>{C6A6C25E-57E5-4AF7-94A1-21DAB81D1BDB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TechJargonBot.Console</RootNamespace>
-    <AssemblyName>TechJargonBot.Console</AssemblyName>
+    <RootNamespace>TechJargonBot.DebugConsole</RootNamespace>
+    <AssemblyName>TechJargonBot.DebugConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -70,12 +70,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TechJargonBot.Business\TechJargonBot.Business.csproj">
-      <Project>{f51fc76e-1a03-47dc-bff3-f14fd06ab031}</Project>
-      <Name>TechJargonBot.Business</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
