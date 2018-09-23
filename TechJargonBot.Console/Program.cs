@@ -4,6 +4,7 @@ using System.Threading;
 using TechJargonBot.Business;
 using TechJargonBot.Business.Data;
 using LinqToTwitter;
+using System.Collections.ObjectModel;
 
 namespace TechJargonBot.Console
 {
@@ -14,13 +15,17 @@ namespace TechJargonBot.Console
 		private const Int32 MinimumNumberOfMinutesBetweenTweets = 0;
 		private const Int32 MaximumNumberOfMinutesBetweenTweets = 59;
 
+		private static readonly TweetFactory[] TweetFactories = new []
+		{
+			new TweetFactory.StatusUpdateFactory()
+		};
+
 		static void Main(String[] args)
 		{
 			var twitterContext =
 				new TwitterContext(
 					new SingleUserAuthorizer
 					{
-
 						CredentialStore = new InMemoryCredentialStore()
 						{
 							ConsumerKey = ConfigurationManager.AppSettings["ConsumerKey"],
@@ -34,19 +39,23 @@ namespace TechJargonBot.Console
 			var wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
 			var sentenceDataProvider = new RandomSentenceProvider(randomNumberGenerator);
 
+			Generator sentenceGenerator =
+				CreateGenerator(
+					sentenceDataProvider,
+					wordDataProvider,
+					randomNumberGenerator);
+
 			while (true)
 			{
-				String sentence =
-					CreateGenerator(
-						sentenceDataProvider,	
-						wordDataProvider,
-						randomNumberGenerator)
-					.Generate();
+				String tweet =
+					TweetFactories
+					.PickAtRandom(randomNumberGenerator)
+					.CreateTweet(sentenceGenerator);
 
 				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(randomNumberGenerator);
 
-				SendTweet(twitterContext, sentence);
-				OutputToConsole(sentence, GetNextTweetTime(timeUntilNextTweet));
+				SendTweet(twitterContext, tweet);
+				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
 
 				Thread.Sleep(timeUntilNextTweet);
 			}
@@ -97,7 +106,8 @@ namespace TechJargonBot.Console
 			TwitterContext twitterContext,
 			String sentence)
 		{
-			await twitterContext.TweetAsync(sentence);
+			var result =
+				await twitterContext.TweetAsync(sentence);
 		}
 	}
 }

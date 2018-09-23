@@ -81,6 +81,8 @@
     <Compile Include="Data\Tags\Tag.cs" />
     <Compile Include="Data\Tags\TagFactory.cs" />
     <Compile Include="Data\Tags\TagWithWord.cs" />
+    <Compile Include="TweetFactory.cs" />
+    <Compile Include="TweetFactory\StatusUpdateFactory.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
