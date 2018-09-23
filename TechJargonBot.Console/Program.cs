@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Threading;
 using TechJargonBot.Business;
 using TechJargonBot.Business.Data;
-using Twitter;
+using LinqToTwitter;
 
 namespace TechJargonBot.Console
 {
@@ -16,12 +16,19 @@ namespace TechJargonBot.Console
 
 		static void Main(String[] args)
 		{
-			var twitterApi =
-				new TwitterApi(
-					ConfigurationManager.AppSettings["ConsumerKey"],
-					ConfigurationManager.AppSettings["ConsumerKeySecret"],
-					ConfigurationManager.AppSettings["AccessToken"],
-					ConfigurationManager.AppSettings["AccessTokenSecret"]);
+			var twitterContext =
+				new TwitterContext(
+					new SingleUserAuthorizer
+					{
+
+						CredentialStore = new InMemoryCredentialStore()
+						{
+							ConsumerKey = ConfigurationManager.AppSettings["ConsumerKey"],
+							ConsumerSecret = ConfigurationManager.AppSettings["ConsumerKeySecret"],
+							OAuthToken = ConfigurationManager.AppSettings["AccessToken"],
+							OAuthTokenSecret = ConfigurationManager.AppSettings["AccessTokenSecret"],
+						}
+					});
 
 			var randomNumberGenerator = new Random();
 			var wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
@@ -38,7 +45,7 @@ namespace TechJargonBot.Console
 
 				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(randomNumberGenerator);
 
-				SendTweet(twitterApi, sentence);
+				SendTweet(twitterContext, sentence);
 				OutputToConsole(sentence, GetNextTweetTime(timeUntilNextTweet));
 
 				Thread.Sleep(timeUntilNextTweet);
@@ -87,10 +94,10 @@ namespace TechJargonBot.Console
 		}
 
 		private async static void SendTweet(
-			TwitterApi twitterApi,
+			TwitterContext twitterContext,
 			String sentence)
 		{
-			await twitterApi.Tweet(sentence);
+			await twitterContext.TweetAsync(sentence);
 		}
 	}
 }
