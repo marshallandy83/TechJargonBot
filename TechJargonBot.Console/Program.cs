@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Configuration;
 using System.Threading;
+using LinqToTwitter;
 using TechJargonBot.Business;
 using TechJargonBot.Business.Data;
-using LinqToTwitter;
-using System.Collections.ObjectModel;
 
 namespace TechJargonBot.Console
 {
@@ -15,9 +14,10 @@ namespace TechJargonBot.Console
 		private const Int32 MinimumNumberOfMinutesBetweenTweets = 0;
 		private const Int32 MaximumNumberOfMinutesBetweenTweets = 59;
 
-		private static readonly TweetFactory[] TweetFactories = new []
+		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
-			new TweetFactory.StatusUpdateFactory()
+			new TweetFactory.StatusUpdateFactory(),
+			new TweetFactory.ReplyFactory()
 		};
 
 		static void Main(String[] args)
