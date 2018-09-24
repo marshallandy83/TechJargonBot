@@ -85,7 +85,12 @@
     <Compile Include="TweetFactory\ReplyFactory.cs" />
     <Compile Include="TweetFactory\StatusUpdateFactory.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
+      <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
+      <Name>TechJargonBot.Twitter</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Data\Adjective\List.csv" />
     <None Include="Data\Noun\List.csv" />

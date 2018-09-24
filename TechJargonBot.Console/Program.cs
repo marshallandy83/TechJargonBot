@@ -30,29 +30,35 @@ namespace TechJargonBot.Console
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
 			new TweetFactory.StatusUpdateFactory(),
-			//new TweetFactory.ReplyFactory()
+			//new TweetFactory.ReplyFactory(
+			//	new Twitter.TweetFinder())
 		};
+
+		private static Random _randomNumberGenerator = new Random();
+		private static IDataProvider _wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
+		private static ISentenceProvider _sentenceDataProvider = new RandomSentenceProvider(_randomNumberGenerator);
+
+		private static IWordSelector _wordSelector =
+			new RegularWordSelector(
+				wordProvider: new RandomWordProvider(_wordDataProvider, _randomNumberGenerator),
+				stringFormatter: new RegularStringFormatter());
 
 		static void Main(String[] args)
 		{
-			var randomNumberGenerator = new Random();
-			var wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
-			var sentenceDataProvider = new RandomSentenceProvider(randomNumberGenerator);
-
 			Generator sentenceGenerator =
 				CreateGenerator(
-					sentenceDataProvider,
-					wordDataProvider,
-					randomNumberGenerator);
+					_sentenceDataProvider,
+					_wordDataProvider,
+					_randomNumberGenerator);
 
 			while (true)
 			{
 				String tweet =
 					TweetFactories
-					.PickAtRandom(randomNumberGenerator)
+					.PickAtRandom(_randomNumberGenerator)
 					.CreateTweet(sentenceGenerator);
 
-				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(randomNumberGenerator);
+				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(_randomNumberGenerator);
 
 				SendTweet(twitterContext, tweet);
 				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
@@ -68,11 +74,8 @@ namespace TechJargonBot.Console
 		{
 			return
 				new Generator(
-					sentenceDataProvider,
-					wordSelector:
-						new RegularWordSelector(
-							wordProvider: new RandomWordProvider(wordDataProvider, randomNumberGenerator),
-							stringFormatter: new RegularStringFormatter()),
+					sentenceProvider: sentenceDataProvider,
+					wordSelector: _wordSelector,
 					stringFormatter: new RegularStringFormatter());
 		}
 
