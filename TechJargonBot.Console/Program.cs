@@ -14,27 +14,27 @@ namespace TechJargonBot.Console
 		private const Int32 MinimumNumberOfMinutesBetweenTweets = 0;
 		private const Int32 MaximumNumberOfMinutesBetweenTweets = 59;
 
+		private static TwitterContext twitterContext =
+			new TwitterContext(
+				new SingleUserAuthorizer
+				{
+					CredentialStore = new InMemoryCredentialStore()
+					{
+						ConsumerKey = ConfigurationManager.AppSettings["ConsumerKey"],
+						ConsumerSecret = ConfigurationManager.AppSettings["ConsumerKeySecret"],
+						OAuthToken = ConfigurationManager.AppSettings["AccessToken"],
+						OAuthTokenSecret = ConfigurationManager.AppSettings["AccessTokenSecret"],
+					}
+				});
+
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
 			new TweetFactory.StatusUpdateFactory(),
-			new TweetFactory.ReplyFactory()
+			//new TweetFactory.ReplyFactory()
 		};
 
 		static void Main(String[] args)
 		{
-			var twitterContext =
-				new TwitterContext(
-					new SingleUserAuthorizer
-					{
-						CredentialStore = new InMemoryCredentialStore()
-						{
-							ConsumerKey = ConfigurationManager.AppSettings["ConsumerKey"],
-							ConsumerSecret = ConfigurationManager.AppSettings["ConsumerKeySecret"],
-							OAuthToken = ConfigurationManager.AppSettings["AccessToken"],
-							OAuthTokenSecret = ConfigurationManager.AppSettings["AccessTokenSecret"],
-						}
-					});
-
 			var randomNumberGenerator = new Random();
 			var wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
 			var sentenceDataProvider = new RandomSentenceProvider(randomNumberGenerator);
@@ -106,8 +106,7 @@ namespace TechJargonBot.Console
 			TwitterContext twitterContext,
 			String sentence)
 		{
-			var result =
-				await twitterContext.TweetAsync(sentence);
+			var result = await twitterContext.TweetAsync(sentence);
 		}
 	}
 }

@@ -85,10 +85,5 @@ namespace TechJargonBot.Business
 				&&
 				Char.IsLetter(sentence[positionOfLetterAfterHash]);
 		}
-
-		//private Boolean HashIsBetweenTwoLetters(Byte numberOfHashesRemoved)
-		//{
-		//	
-		//}
 	}
 }
