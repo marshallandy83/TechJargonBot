@@ -25,7 +25,32 @@ namespace TechJargonBot.DebugConsole
 						}
 					});
 
-			Console.WriteLine(twitterContext.TweetAsync("test").Status);
+			String query = "firewall AND (fix OR fixed OR fixes OR fixing)";
+			//String query = @"firewall%20AND%20(fix%20OR%20fixed%20OR%20fixes%20OR%20fixing)";
+
+			var statuses =
+				twitterContext
+					.Search
+					.Where(
+						search => search.Type == SearchType.Search
+						&&
+						search.Query == query
+						&&
+						search.SearchLanguage == "en-gb"
+						&&
+						search.IncludeEntities == false)
+					.Single()
+					.Statuses
+					.SelectMany(status => twitterContext.Status.Where(s => s.ID == status.ID))
+					.ToList();
+
+			foreach (var status in statuses)
+			{
+				Console.WriteLine("------------------------------------------------TWEET------------------------------------------------");
+				Console.WriteLine(status.Text);
+				Console.WriteLine(status.FullText);
+			}
+
 			Console.Read();
 		}
 	}

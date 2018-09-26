@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using TechJargonBot.Business.Data.Tags;
 
 namespace TechJargonBot.Business.Data
@@ -13,7 +12,6 @@ namespace TechJargonBot.Business.Data
 
 		protected abstract Int32 Index { get; }
 		protected abstract String TagWord { get; }
-		//public List<String> Words { get; } = new List<String>();
 		public String Value { get; }
 
 		public String Tag =>

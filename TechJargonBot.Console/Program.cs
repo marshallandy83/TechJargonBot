@@ -31,16 +31,20 @@ namespace TechJargonBot.Console
 		{
 			new TweetFactory.StatusUpdateFactory(),
 			//new TweetFactory.ReplyFactory(
-			//	new Twitter.TweetFinder())
+			//	new Twitter.TweetFinder(),
+			//	_wordProvider,
+			//	new TagExtractor(
+			//		tagFactory: new TagFactory()))
 		};
 
 		private static Random _randomNumberGenerator = new Random();
 		private static IDataProvider _wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
 		private static ISentenceProvider _sentenceDataProvider = new RandomSentenceProvider(_randomNumberGenerator);
+		private static IWordProvider _wordProvider = new RandomWordProvider(_wordDataProvider, _randomNumberGenerator);
 
 		private static IWordSelector _wordSelector =
 			new RegularWordSelector(
-				wordProvider: new RandomWordProvider(_wordDataProvider, _randomNumberGenerator),
+				wordProvider: _wordProvider,
 				stringFormatter: new RegularStringFormatter());
 
 		static void Main(String[] args)

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TechJargonBot.Twitter
 {
-    public class TweetFinder
-    {
-    }
+	public class TweetFinder
+	{
+		public object FindTweet(ICollection<String> randomWords)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

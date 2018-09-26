@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -20,7 +19,7 @@ namespace TechJargonBot.Business.Data.Tags
 
 		internal IEnumerable<Tag> ExtractTags(String sentence)
 		{
-			var tagStrings = Regex.Matches(sentence, $@"([{TagStartCharacter}][^[]+[{TagEndCharacter}])");
+			MatchCollection tagStrings = Regex.Matches(sentence, $@"([{TagStartCharacter}][^[]+[{TagEndCharacter}])");
 
 			var tags = new List<Tag>();
 
