@@ -7,15 +7,10 @@ namespace TechJargonBot.Business
 {
 	internal class RandomSentenceProvider : ISentenceProvider
 	{
-		private readonly Random _randomNumberGenerator;
 		private readonly List<String> _sentences = new List<String>();
 
-		public RandomSentenceProvider(
-			Random randomNumberGenerator,
-			Data.SentenceType sentenceType)
+		public RandomSentenceProvider(Data.SentenceType sentenceType)
 		{
-			_randomNumberGenerator = randomNumberGenerator;
-
 			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{sentenceType.CsvFilename}.csv"))
 			{
 				while (!reader.EndOfStream)
@@ -24,12 +19,6 @@ namespace TechJargonBot.Business
 			}
 		}
 
-		public String GetSentence()
-		{
-			return
-				_sentences
-					.PickAtRandom(
-						_randomNumberGenerator);
-		}
+		public String GetSentence() => _sentences.PickAtRandom();
 	}
 }

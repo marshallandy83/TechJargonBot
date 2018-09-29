@@ -35,16 +35,14 @@ namespace TechJargonBot.Console
 
 		static void Main(String[] args)
 		{
-			var randomNumberGenerator = new Random();
-
 			while (true)
 			{
 				String tweet =
 					TweetFactories
-					.PickAtRandom(randomNumberGenerator)
+					.PickAtRandom()
 					.CreateTweet();
 
-				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(randomNumberGenerator);
+				TimeSpan timeUntilNextTweet = GetRandomTimeSpan();
 
 				SendTweet(twitterContext, tweet);
 				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
@@ -53,14 +51,16 @@ namespace TechJargonBot.Console
 			}
 		}
 
-		private static TimeSpan GetRandomTimeSpan(Random randomNumberGenerator)
+		private static Random _randomTimeSpanGenerator = new Random();
+
+		private static TimeSpan GetRandomTimeSpan()
 		{
 			return
 				new TimeSpan(
-					hours: randomNumberGenerator.Next(
+					hours: _randomTimeSpanGenerator.Next(
 						MinimumNumberOfHoursBetweenTweets,
 						MaximumNumberOfHoursBetweenTweets),
-					minutes: randomNumberGenerator.Next(
+					minutes: _randomTimeSpanGenerator.Next(
 						MinimumNumberOfMinutesBetweenTweets,
 						MaximumNumberOfMinutesBetweenTweets),
 					seconds: 0);

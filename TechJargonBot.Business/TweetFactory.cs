@@ -7,18 +7,18 @@ namespace TechJargonBot.Business
 	{
 		public TweetFactory(SentenceType sentenceType)
 		{
-			var randomNumberGenerator = new Random();
 			var stringFormatter = new RegularStringFormatter();
 
 			 SentenceGenerator =
 				new Generator(
-					sentenceProvider: new RandomSentenceProvider(randomNumberGenerator, sentenceType),
+					sentenceProvider: new RandomSentenceProvider(sentenceType),
 					wordSelector:
 						new RegularWordSelector(
 							wordProvider:
 								new RandomWordProvider(
-									dataProvider: new DataProvider(dataReader: new CsvFileReader()),
-									randomNumberGenerator: randomNumberGenerator),
+									dataProvider:
+										new DataProvider(
+											dataReader: new CsvFileReader())),
 							stringFormatter: stringFormatter),
 					stringFormatter: stringFormatter);
 		}

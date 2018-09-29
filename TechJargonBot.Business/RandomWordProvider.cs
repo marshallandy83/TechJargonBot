@@ -8,14 +8,10 @@ namespace TechJargonBot.Business
 	internal class RandomWordProvider : IWordProvider
 	{
 		private readonly IDataProvider _dataProvider;
-		private readonly Random _randomNumberGenerator;
 
-		public RandomWordProvider(
-			IDataProvider dataProvider,
-			Random randomNumberGenerator)
+		public RandomWordProvider(IDataProvider dataProvider)
 		{
 			_dataProvider = dataProvider;
-			_randomNumberGenerator = randomNumberGenerator;
 		}
 
 		public Word GetNewWord(Tag tag)
@@ -26,7 +22,7 @@ namespace TechJargonBot.Business
 					.SelectMany(words => words)
 					.Where(word => word.Forms.Any(form => form.HasTag(tag)))
 					.Where(word => tag.IsSuitable(word))
-					.PickAtRandom(_randomNumberGenerator);
+					.PickAtRandom();
 		}
 	}
 }
