@@ -2,9 +2,9 @@
 
 namespace TechJargonBot.Business.Data
 {
-	partial class SentenceType
+	partial class SentenceTemplateType
 	{
-		internal class Status : SentenceType
+		internal class Reply : SentenceTemplateType
 		{
 			public override String CsvFilename => "Sentences";
 		}

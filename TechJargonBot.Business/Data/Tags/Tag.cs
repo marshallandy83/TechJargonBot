@@ -34,11 +34,11 @@ namespace TechJargonBot.Business.Data.Tags
 			_tagReplacer = tagReplacer;
 		}
 
-		public String ReplaceWordInSentence(
-			String sentence,
+		public String ReplaceWordInSentenceTemplate(
+			String sentenceTemplate,
 			String word)
 		{
-			return _tagReplacer.Replace(sentence, word, TagString.Raw);
+			return _tagReplacer.Replace(sentenceTemplate, word, TagString.Raw);
 		}
 
 		public TagString TagString { get; }

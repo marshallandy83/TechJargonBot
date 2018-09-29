@@ -8,17 +8,17 @@ namespace TechJargonBot.Business
 {
 	public class Generator
     {
-		private readonly ISentenceProvider _sentenceProvider;
+		private readonly ISentenceTemplateProvider _sentenceTemplateProvider;
 		private readonly IWordSelector _wordSelector;
 		private readonly IStringFormatter _stringFormatter;
 		private readonly TagExtractor _tagExtractor;
 
 		internal Generator(
-			ISentenceProvider sentenceProvider,
+			ISentenceTemplateProvider sentenceProvider,
 			IWordSelector wordSelector,
 			IStringFormatter stringFormatter)
 		{
-			_sentenceProvider = sentenceProvider;
+			_sentenceTemplateProvider = sentenceProvider;
 			_wordSelector = wordSelector;
 			_stringFormatter = stringFormatter;
 
@@ -29,12 +29,12 @@ namespace TechJargonBot.Business
 
 		public String Generate()
 		{
-			return Generate(_sentenceProvider.GetSentence());
+			return Generate(_sentenceTemplateProvider.GetSentenceTemplate());
 		}
 
-		public String Generate(String sentence)
+		public String Generate(String sentenceTemplate)
 		{
-			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentence);
+			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentenceTemplate);
 
 			List<TagWithWord> tagsWithRandomWords =
 				_wordSelector.CreateTagsWithWords(tags).ToList();
@@ -42,18 +42,18 @@ namespace TechJargonBot.Business
 			return
 				RemoveHashesFromInsideHashtags(
 					ReplaceTagsWithRandomWords(
-						sentence,
+						sentenceTemplate,
 						tagsWithRandomWords));
 		}
 
 		private String ReplaceTagsWithRandomWords(
-			String sentence,
+			String sentenceTemplate,
 			IEnumerable<TagWithWord> tagsWithRandomWords)
 		{
 			foreach (var tagWithWord in tagsWithRandomWords)
-				sentence = tagWithWord.ReplaceWordInSentence(sentence);
+				sentenceTemplate = tagWithWord.ReplaceWordInSentence(sentenceTemplate);
 
-			return sentence;
+			return sentenceTemplate;
 		}
 
 		private String RemoveHashesFromInsideHashtags(String sentence)

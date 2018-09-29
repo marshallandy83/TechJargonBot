@@ -2,7 +2,7 @@
 
 namespace TechJargonBot.Business.Data
 {
-	internal abstract partial class SentenceType
+	internal abstract partial class SentenceTemplateType
 	{
 		public abstract String CsvFilename { get; }
 	}

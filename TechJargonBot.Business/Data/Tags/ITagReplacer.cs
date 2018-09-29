@@ -5,7 +5,7 @@ namespace TechJargonBot.Business.Data.Tags
 	internal interface ITagReplacer
 	{
 		String Replace(
-			String sentence,
+			String sentenceTemplate,
 			String formattedWord,
 			String rawTagString);
 	}

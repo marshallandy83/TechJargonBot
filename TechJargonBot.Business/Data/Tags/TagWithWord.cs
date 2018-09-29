@@ -37,7 +37,7 @@ namespace TechJargonBot.Business.Data.Tags
 					Tag.TagString);
 
 			return
-				Tag.ReplaceWordInSentence(
+				Tag.ReplaceWordInSentenceTemplate(
 					sentence,
 					formattedWord);
 		}

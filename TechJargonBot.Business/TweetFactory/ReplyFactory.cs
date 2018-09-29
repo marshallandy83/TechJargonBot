@@ -9,7 +9,7 @@ namespace TechJargonBot.Business
 		{
 			private readonly Twitter.TweetFinder _tweetFinder;
 
-			public ReplyFactory(Twitter.TweetFinder tweetFinder) : base(new SentenceType.Reply())
+			public ReplyFactory(Twitter.TweetFinder tweetFinder) : base(new SentenceTemplateType.Reply())
 			{
 				_tweetFinder = tweetFinder;
 			}

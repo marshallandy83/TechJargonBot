@@ -5,13 +5,13 @@ namespace TechJargonBot.Business
 {
 	internal abstract partial class TweetFactory
 	{
-		public TweetFactory(SentenceType sentenceType)
+		public TweetFactory(SentenceTemplateType sentenceType)
 		{
 			var stringFormatter = new RegularStringFormatter();
 
 			 SentenceGenerator =
 				new Generator(
-					sentenceProvider: new RandomSentenceProvider(sentenceType),
+					sentenceProvider: new RandomSentenceTemplateProvider(sentenceType),
 					wordSelector:
 						new RegularWordSelector(
 							wordProvider:
