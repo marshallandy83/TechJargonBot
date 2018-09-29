@@ -1,4 +1,5 @@
 ﻿using System;
+using TechJargonBot.Business.Data;
 
 namespace TechJargonBot.Business
 {
@@ -6,9 +7,13 @@ namespace TechJargonBot.Business
 	{
 		internal class StatusUpdateFactory : TweetFactory
 		{
-			public override String CreateTweet(Generator sentenceGenerator)
+			public StatusUpdateFactory() : base(new SentenceType.Status())
 			{
-				return sentenceGenerator.Generate();
+			}
+
+			public override String CreateTweet()
+			{
+				return SentenceGenerator.Generate();
 			}
 		}
 	}

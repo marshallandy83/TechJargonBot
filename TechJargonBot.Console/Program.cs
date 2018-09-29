@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Threading;
 using LinqToTwitter;
 using TechJargonBot.Business;
-using TechJargonBot.Business.Data;
 
 namespace TechJargonBot.Console
 {
@@ -30,57 +29,28 @@ namespace TechJargonBot.Console
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
 			new TweetFactory.StatusUpdateFactory(),
-			//new TweetFactory.ReplyFactory(
-			//	new Twitter.TweetFinder(),
-			//	_wordProvider,
-			//	new TagExtractor(
-			//		tagFactory: new TagFactory()))
+			new TweetFactory.ReplyFactory(
+				new Twitter.TweetFinder())
 		};
-
-		private static Random _randomNumberGenerator = new Random();
-		private static IDataProvider _wordDataProvider = new DataProvider(dataReader: new CsvFileReader());
-		private static ISentenceProvider _sentenceDataProvider = new RandomSentenceProvider(_randomNumberGenerator);
-		private static IWordProvider _wordProvider = new RandomWordProvider(_wordDataProvider, _randomNumberGenerator);
-
-		private static IWordSelector _wordSelector =
-			new RegularWordSelector(
-				wordProvider: _wordProvider,
-				stringFormatter: new RegularStringFormatter());
 
 		static void Main(String[] args)
 		{
-			Generator sentenceGenerator =
-				CreateGenerator(
-					_sentenceDataProvider,
-					_wordDataProvider,
-					_randomNumberGenerator);
+			var randomNumberGenerator = new Random();
 
 			while (true)
 			{
 				String tweet =
 					TweetFactories
-					.PickAtRandom(_randomNumberGenerator)
-					.CreateTweet(sentenceGenerator);
+					.PickAtRandom(randomNumberGenerator)
+					.CreateTweet();
 
-				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(_randomNumberGenerator);
+				TimeSpan timeUntilNextTweet = GetRandomTimeSpan(randomNumberGenerator);
 
 				SendTweet(twitterContext, tweet);
 				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
 
 				Thread.Sleep(timeUntilNextTweet);
 			}
-		}
-
-		private static Generator CreateGenerator(
-			ISentenceProvider sentenceDataProvider,
-			IDataProvider wordDataProvider,
-			Random randomNumberGenerator)
-		{
-			return
-				new Generator(
-					sentenceProvider: sentenceDataProvider,
-					wordSelector: _wordSelector,
-					stringFormatter: new RegularStringFormatter());
 		}
 
 		private static TimeSpan GetRandomTimeSpan(Random randomNumberGenerator)

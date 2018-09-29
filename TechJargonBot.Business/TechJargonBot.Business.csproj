@@ -45,6 +45,8 @@
     <Compile Include="Data\HashtagSuitabilityProvider.cs" />
     <Compile Include="Data\IDataReader.cs" />
     <Compile Include="Data\Adjective.cs" />
+    <Compile Include="Data\SentenceType\Reply.cs" />
+    <Compile Include="Data\SentenceType\Status.cs" />
     <Compile Include="Data\Tags\ITagFactory.cs" />
     <Compile Include="Data\Person.cs" />
     <Compile Include="Data\Noun\SingularWithArticle.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Data\Tags\Tag.cs" />
     <Compile Include="Data\Tags\TagFactory.cs" />
     <Compile Include="Data\Tags\TagWithWord.cs" />
+    <Compile Include="Data\SentenceType.cs" />
     <Compile Include="TweetFactory.cs" />
     <Compile Include="TweetFactory\ReplyFactory.cs" />
     <Compile Include="TweetFactory\StatusUpdateFactory.cs" />

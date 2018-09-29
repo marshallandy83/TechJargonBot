@@ -10,11 +10,13 @@ namespace TechJargonBot.Business
 		private readonly Random _randomNumberGenerator;
 		private readonly List<String> _sentences = new List<String>();
 
-		public RandomSentenceProvider(Random randomNumberGenerator)
+		public RandomSentenceProvider(
+			Random randomNumberGenerator,
+			Data.SentenceType sentenceType)
 		{
 			_randomNumberGenerator = randomNumberGenerator;
 
-			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\Sentences.csv"))
+			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{sentenceType.CsvFilename}.csv"))
 			{
 				while (!reader.EndOfStream)
 					_sentences.Add(
