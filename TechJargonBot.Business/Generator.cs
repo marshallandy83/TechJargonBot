@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TechJargonBot.Business.Data;
 using TechJargonBot.Business.Data.Tags;
 
 namespace TechJargonBot.Business
@@ -27,12 +28,12 @@ namespace TechJargonBot.Business
 					tagFactory: new TagFactory());
 		}
 
-		public String Generate()
+		internal Sentence Generate()
 		{
 			return Generate(_sentenceTemplateProvider.GetSentenceTemplate());
 		}
 
-		public String Generate(String sentenceTemplate)
+		internal Sentence Generate(String sentenceTemplate)
 		{
 			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentenceTemplate);
 
@@ -40,10 +41,14 @@ namespace TechJargonBot.Business
 				_wordSelector.CreateTagsWithWords(tags).ToList();
 
 			return
-				RemoveHashesFromInsideHashtags(
-					ReplaceTagsWithRandomWords(
-						sentenceTemplate,
-						tagsWithRandomWords));
+				new Sentence(
+					tagsWithWords:
+						tagsWithRandomWords,
+					text:
+						RemoveHashesFromInsideHashtags(
+							ReplaceTagsWithRandomWords(
+								sentenceTemplate,
+								tagsWithRandomWords)));
 		}
 
 		private String ReplaceTagsWithRandomWords(

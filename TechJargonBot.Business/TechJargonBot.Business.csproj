@@ -45,6 +45,7 @@
     <Compile Include="Data\HashtagSuitabilityProvider.cs" />
     <Compile Include="Data\IDataReader.cs" />
     <Compile Include="Data\Adjective.cs" />
+    <Compile Include="Data\Sentence.cs" />
     <Compile Include="Data\SentenceTemplateType.cs" />
     <Compile Include="Data\SentenceTemplateType\Reply.cs" />
     <Compile Include="Data\SentenceTemplateType\Status.cs" />

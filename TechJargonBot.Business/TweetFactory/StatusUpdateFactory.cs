@@ -13,7 +13,7 @@ namespace TechJargonBot.Business
 
 			public override String CreateTweet()
 			{
-				return SentenceGenerator.Generate();
+				return SentenceGenerator.Generate().Text;
 			}
 		}
 	}

@@ -16,7 +16,8 @@ namespace TechJargonBot.Business
 					sentenceProvider: null,
 					wordSelector: CreateMockWordProvider(tagsWithWords),
 					stringFormatter: new RegularStringFormatter())
-					.Generate(sentence);
+				.Generate(sentence)
+				.Text;
 		}
 
 		private IWordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)
