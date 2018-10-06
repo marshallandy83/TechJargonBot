@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace TechJargonBot.Business.Data.Tags
+namespace TechJargonBot.Vocabulary.Tags
 {
 	public class TagExtractorTests
 	{

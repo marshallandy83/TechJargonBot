@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using TechJargonBot.Business.Data;
+using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
 {

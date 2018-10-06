@@ -41,40 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
-    <Compile Include="Data\Adjective\WithArticle.cs" />
-    <Compile Include="Data\HashtagSuitabilityProvider.cs" />
     <Compile Include="Data\IDataReader.cs" />
-    <Compile Include="Data\Adjective.cs" />
-    <Compile Include="Data\Sentence.cs" />
-    <Compile Include="Data\SentenceTemplateType.cs" />
-    <Compile Include="Data\SentenceTemplateType\Reply.cs" />
-    <Compile Include="Data\SentenceTemplateType\Status.cs" />
-    <Compile Include="Data\Tags\ITagFactory.cs" />
-    <Compile Include="Data\Person.cs" />
-    <Compile Include="Data\Noun\SingularWithArticle.cs" />
-    <Compile Include="Data\Noun\SingularWithoutArticle.cs" />
-    <Compile Include="Data\Noun\Plural.cs" />
-    <Compile Include="Data\Adjective\WithoutArticle.cs" />
-    <Compile Include="Data\Person\TwitterHandle.cs" />
-    <Compile Include="Data\Tags\ITagReplacer.cs" />
-    <Compile Include="Data\Tags\TagExtractor.cs" />
-    <Compile Include="Data\Noun.cs" />
-    <Compile Include="Data\Tags\TagReplacer.cs" />
-    <Compile Include="Data\Tags\TagString.cs" />
-    <Compile Include="Data\Verb\PastParticiple.cs" />
-    <Compile Include="Data\Verb\ThirdPersonSingular.cs" />
-    <Compile Include="Data\Verb\PresentParticiple.cs" />
-    <Compile Include="Data\Verb\Root.cs" />
-    <Compile Include="Data\Word.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Generator.cs" />
-    <Compile Include="Data\Form.cs" />
     <Compile Include="Data\CsvFileReader.cs" />
-    <Compile Include="Data\Verb.cs" />
     <Compile Include="IDataProvider.cs" />
     <Compile Include="ISentenceTemplateProvider.cs" />
     <Compile Include="IStringFormatter.cs" />
-    <Compile Include="Data\Tags\ITagWithWord.cs" />
     <Compile Include="IWordProvider.cs" />
     <Compile Include="IWordSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,9 +55,6 @@
     <Compile Include="RandomWordProvider.cs" />
     <Compile Include="RegularWordSelector.cs" />
     <Compile Include="RegularStringFormatter.cs" />
-    <Compile Include="Data\Tags\Tag.cs" />
-    <Compile Include="Data\Tags\TagFactory.cs" />
-    <Compile Include="Data\Tags\TagWithWord.cs" />
     <Compile Include="TweetFactory.cs" />
     <Compile Include="TweetFactory\ReplyFactory.cs" />
     <Compile Include="TweetFactory\StatusUpdateFactory.cs" />
@@ -93,6 +63,10 @@
     <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
       <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
       <Name>TechJargonBot.Twitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj">
+      <Project>{94d608c8-2bd1-4328-ab78-7afd223f841e}</Project>
+      <Name>TechJargonBot.Vocabulary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

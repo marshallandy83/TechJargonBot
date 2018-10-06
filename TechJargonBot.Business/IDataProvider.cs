@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using TechJargonBot.Business.Data;
+using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
 {

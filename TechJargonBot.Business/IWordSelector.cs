@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using TechJargonBot.Business.Data.Tags;
+﻿using System.Collections.Generic;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {

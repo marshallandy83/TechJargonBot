@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace TechJargonBot.Business.Data
+namespace TechJargonBot.Vocabulary
 {
 	public class HashtagSuitabilityProviderTests
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Moq;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary.Tags;
 using Xunit;
 
 namespace TechJargonBot.Business

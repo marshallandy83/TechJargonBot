@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {
@@ -26,7 +25,7 @@ namespace TechJargonBot.Business
 			return
 				tags.Select(tag =>
 					new TagWithWord(
-						stringFormatter: _stringFormatter,
+						formatString: (wordToFormat, tagString) => _stringFormatter.FormatString(wordToFormat, tagString),
 						tag: tag,
 						word:
 							tag.HasIdentifer
@@ -52,9 +51,9 @@ namespace TechJargonBot.Business
 
 				_tagsWithWordsToReuse.Add(
 					new TagWithWord(
-						_stringFormatter,
-						tag,
-						word));
+						formatString: (wordToFormat, tagString) => _stringFormatter.FormatString(wordToFormat, tagString),
+						tag: tag,
+						word: word));
 			}
 
 			return word;

@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Moq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 using Xunit;
 
 namespace TechJargonBot.Business
@@ -100,7 +99,7 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[done1]", "[done]"),
 							identifier: 1,
@@ -128,7 +127,7 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[done1]", "[done]"),
 							identifier: 1,
@@ -153,7 +152,7 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing]", "[Doing]"),
 							identifier: 1,
@@ -177,7 +176,7 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[Doing1]", "[Doing]"),
 							identifier: 1,
@@ -186,7 +185,7 @@ namespace TechJargonBot.Business
 							isForHashtag: false),
 						word: _patch),
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing1]", "[Doing]"),
 							identifier: 1,
@@ -210,7 +209,7 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing]", "[Doing]"),
 							identifier: 1,
@@ -219,7 +218,7 @@ namespace TechJargonBot.Business
 							isForHashtag: true),
 						word: _patch),
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Things]", "[Things]"),
 							identifier: 1,
@@ -239,7 +238,7 @@ namespace TechJargonBot.Business
 		{
 			return
 				new TagWithWord(
-					new RegularStringFormatter(),
+					(wordToFormat, tagString) => new RegularStringFormatter().FormatString(wordToFormat, tagString),
 					new Tag(
 						tagString: new TagString(tagWord, tagWord),
 						wordSuitabilityPredicate: (_) => true,

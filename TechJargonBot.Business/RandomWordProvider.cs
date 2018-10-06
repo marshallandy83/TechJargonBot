@@ -1,7 +1,6 @@
-﻿using System;
-using System.Linq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+﻿using System.Linq;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {

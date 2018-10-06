@@ -96,6 +96,10 @@
       <Project>{f51fc76e-1a03-47dc-bff3-f14fd06ab031}</Project>
       <Name>TechJargonBot.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj">
+      <Project>{94D608C8-2BD1-4328-AB78-7AFD223F841E}</Project>
+      <Name>TechJargonBot.Vocabulary</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />

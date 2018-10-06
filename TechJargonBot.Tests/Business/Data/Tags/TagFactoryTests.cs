@@ -4,7 +4,7 @@ using System.Linq;
 using Moq;
 using Xunit;
 
-namespace TechJargonBot.Business.Data.Tags
+namespace TechJargonBot.Vocabulary.Tags
 {
 	public class TagFactoryTests
 	{

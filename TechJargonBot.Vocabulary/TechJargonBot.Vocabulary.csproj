@@ -40,7 +40,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adjective.cs" />
+    <Compile Include="Adjective\WithArticle.cs" />
+    <Compile Include="Adjective\WithoutArticle.cs" />
+    <Compile Include="Form.cs" />
+    <Compile Include="HashtagSuitabilityProvider.cs" />
+    <Compile Include="Noun.cs" />
+    <Compile Include="Noun\Plural.cs" />
+    <Compile Include="Noun\SingularWithArticle.cs" />
+    <Compile Include="Noun\SingularWithoutArticle.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Person\TwitterHandle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sentence.cs" />
+    <Compile Include="SentenceTemplateType.cs" />
+    <Compile Include="SentenceTemplateType\Reply.cs" />
+    <Compile Include="SentenceTemplateType\Status.cs" />
+    <Compile Include="Tags\ITagFactory.cs" />
+    <Compile Include="Tags\ITagReplacer.cs" />
+    <Compile Include="Tags\ITagWithWord.cs" />
+    <Compile Include="Tags\Tag.cs" />
+    <Compile Include="Tags\TagExtractor.cs" />
+    <Compile Include="Tags\TagFactory.cs" />
+    <Compile Include="Tags\TagReplacer.cs" />
+    <Compile Include="Tags\TagString.cs" />
+    <Compile Include="Tags\TagWithWord.cs" />
+    <Compile Include="Verb.cs" />
+    <Compile Include="Verb\PastParticiple.cs" />
+    <Compile Include="Verb\PresentParticiple.cs" />
+    <Compile Include="Verb\Root.cs" />
+    <Compile Include="Verb\ThirdPersonSingular.cs" />
+    <Compile Include="Word.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

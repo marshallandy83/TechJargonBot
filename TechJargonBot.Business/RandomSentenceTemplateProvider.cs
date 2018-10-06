@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
 {
@@ -9,7 +10,7 @@ namespace TechJargonBot.Business
 	{
 		private readonly List<String> _sentenceTemplates = new List<String>();
 
-		public RandomSentenceTemplateProvider(Data.SentenceTemplateType sentenceTemplateType)
+		public RandomSentenceTemplateProvider(SentenceTemplateType sentenceTemplateType)
 		{
 			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{sentenceTemplateType.CsvLocation}\List.csv"))
 			{
