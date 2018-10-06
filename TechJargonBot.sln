@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.DebugConsole"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Twitter", "TechJargonBot.Twitter\TechJargonBot.Twitter.csproj", "{7DB49519-11EB-439C-A2DC-241D4BD1C730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Vocabulary", "TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj", "{94D608C8-2BD1-4328-AB78-7AFD223F841E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7DB49519-11EB-439C-A2DC-241D4BD1C730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DB49519-11EB-439C-A2DC-241D4BD1C730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DB49519-11EB-439C-A2DC-241D4BD1C730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
