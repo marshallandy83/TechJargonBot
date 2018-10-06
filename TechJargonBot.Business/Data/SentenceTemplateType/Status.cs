@@ -6,7 +6,7 @@ namespace TechJargonBot.Business.Data
 	{
 		internal class Status : SentenceTemplateType
 		{
-			public override String CsvFilename => "Sentences";
+			public override String CsvLocation => "Status";
 		}
 	}
 }

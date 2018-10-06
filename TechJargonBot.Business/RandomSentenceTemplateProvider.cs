@@ -11,7 +11,7 @@ namespace TechJargonBot.Business
 
 		public RandomSentenceTemplateProvider(Data.SentenceTemplateType sentenceTemplateType)
 		{
-			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{sentenceTemplateType.CsvFilename}.csv"))
+			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{sentenceTemplateType.CsvLocation}\List.csv"))
 			{
 				while (!reader.EndOfStream)
 					_sentenceTemplates.Add(

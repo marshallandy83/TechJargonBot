@@ -99,7 +99,7 @@
     <None Include="Data\Adjective\List.csv" />
     <None Include="Data\Noun\List.csv" />
     <None Include="Data\Person\List.csv" />
-    <None Include="Data\Sentences.csv" />
+    <None Include="Data\Status\List.csv" />
     <None Include="Data\Verb\List.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
