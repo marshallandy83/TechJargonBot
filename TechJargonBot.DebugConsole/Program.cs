@@ -25,7 +25,7 @@ namespace TechJargonBot.DebugConsole
 						}
 					});
 
-			String query = "firewall AND (fix OR fixed OR fixes OR fixing)";
+			String query = "a Grunt OR Grunt OR a DLL OR DLL OR DLLs OR switch to OR switching to OR switched to OR switches to";
 			//String query = @"firewall%20AND%20(fix%20OR%20fixed%20OR%20fixes%20OR%20fixing)";
 
 			var statuses =

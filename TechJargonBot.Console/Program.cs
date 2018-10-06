@@ -28,8 +28,9 @@ namespace TechJargonBot.Console
 
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
-			new TweetFactory.StatusUpdateFactory(),
+			//new TweetFactory.StatusUpdateFactory(),
 			new TweetFactory.ReplyFactory(
+				new Twitter.AnyWordQueryFactory(),
 				new Twitter.TweetFinder())
 		};
 
