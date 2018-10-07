@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Vocabulary
@@ -14,5 +15,6 @@ namespace TechJargonBot.Vocabulary
 
 		public List<TagWithWord> TagsWithWords { get; }
 		public String Text { get; }
+		public IEnumerable<Word> AllWords => TagsWithWords.Select(tagWithWord => tagWithWord.Word);
 	}
 }

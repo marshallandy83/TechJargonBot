@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using TechJargonBot.Business.Data;
 using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
@@ -25,11 +23,7 @@ namespace TechJargonBot.Business
 			{
 				Sentence sentence = SentenceGenerator.Generate();
 
-				String query =
-					_queryFactory.Create(
-						sentence.TagsWithWords.SelectMany(
-							tagWithWord => tagWithWord.Word.Forms.Select(
-								form => form.Value)));
+				String query = _queryFactory.Create(sentence.AllWords);
 
 				return sentence.Text;
 			}

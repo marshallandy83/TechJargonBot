@@ -6,7 +6,7 @@ namespace TechJargonBot.Vocabulary
 	{
 		public class Reply : SentenceTemplateType
 		{
-			public override String CsvLocation => "Status";
+			public override String CsvLocation => "Reply";
 		}
 	}
 }

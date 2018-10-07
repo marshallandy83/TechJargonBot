@@ -41,9 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IQueryFactory.cs" />
-    <Compile Include="AnyWordQueryFactory.cs" />
+    <Compile Include="AllWordsQueryFactory.cs" />
     <Compile Include="TweetFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj">
+      <Project>{94D608C8-2BD1-4328-AB78-7AFD223F841E}</Project>
+      <Name>TechJargonBot.Vocabulary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

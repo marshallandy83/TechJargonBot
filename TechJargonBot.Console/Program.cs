@@ -30,7 +30,7 @@ namespace TechJargonBot.Console
 		{
 			//new TweetFactory.StatusUpdateFactory(),
 			new TweetFactory.ReplyFactory(
-				new Twitter.AnyWordQueryFactory(),
+				new Twitter.AllWordsQueryFactory(),
 				new Twitter.TweetFinder())
 		};
 
