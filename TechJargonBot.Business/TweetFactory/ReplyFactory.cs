@@ -13,10 +13,21 @@ namespace TechJargonBot.Business
 			public ReplyFactory(
 				Twitter.IQueryFactory queryFactory,
 				Twitter.TweetFinder tweetFinder)
-				: base(new SentenceTemplateType.Reply())
+				: base(
+					  sentenceType: new SentenceTemplateType.Reply(),
+					  wordSuitabilityPredicate: word => word.IsDomainSpecific)
 			{
 				_queryFactory = queryFactory;
 				_tweetFinder = tweetFinder;
+			}
+
+			public Tuple<String, String> GetSentenceAndQuery()
+			{
+				Sentence sentence = SentenceGenerator.Generate();
+
+				String query = _queryFactory.Create(sentence.AllWords);
+
+				return new Tuple<String, String>(sentence.Text, query);
 			}
 
 			public override String CreateTweet()

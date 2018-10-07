@@ -8,7 +8,9 @@ namespace TechJargonBot.Business
 		internal class StatusUpdateFactory : TweetFactory
 		{
 			public StatusUpdateFactory()
-				: base(new SentenceTemplateType.Status())
+				: base(
+					  sentenceType: new SentenceTemplateType.Status(),
+					  wordSuitabilityPredicate: word => true)
 			{
 			}
 

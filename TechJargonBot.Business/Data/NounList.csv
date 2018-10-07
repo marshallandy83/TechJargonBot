@@ -1,245 +1,245 @@
 article,singular,plural
-the,credentials,credentials
-a,repository,repositories
-a,farm,farms
-a,pool,pools
-a,server,servers
-a,service,services
-a,portal,portals
-a,port,ports
-an,API,APIs
-a,database,databases
-a,query,queries
-a,branch,branches
-an,end point,end points
-a,firewall,firewalls
-a,cache,caches
-a,garbage collector,garbage collectors
-a,spreadsheet,spreadsheets
-a,document,documents
-a,configuration,configurations
-a,GUID,GUIDs
-a,licence key,licence keys
-a,tablet,tablets
-a,subscription,subscriptions
-a,cookie,cookies
-an,SSD,SSDs
-a,hard drive,hard drives
-a,kanban,kanbans
-a,work item,work items
-a,folder,folders
-a,conflict,conflicts
-a,smart card,smart cards
-the,history,history
-the,RAM,RAM
-a,solution,solutions
-a,browser,browsers
-the,software,software
-a,tool,tools
-a,pending change,pending changes
-a,recycle bin,recycle bins
-a,bin folder,bin folders
-the,data,data
-a,transaction,transactions
-a,store,stores
-a,balancer,balancers
-a,bootstrapper,bootstrappers
-a,file,files
-a,package,packages
-a,resource,resources
-a,backlog,backlogs
-a,chipset,chipsets
-a,motherboard,motherboards
-an,enhancement,enhancements
-the,source code,source code
-a,web service,web services
-an,applet,applets
-an,error log,error logs
-a,hack,hacks
-a,template,templates
-an,add-on,add-ons
-a,plug-in,plug-ins
-a,framework,frameworks
-a,slave,slaves
-a,DLL,DLLs
-an,assembly,assemblies
-a,compiler,compilers
-a,formatter,formatters
-an,image,images
-an,attachment,attachments
-a,client,clients
-a,scheduler,schedulers
-a,quota,quotas
-a,script,scripts
-an,environment,environments
-an,index,indexes
-a,switcher,switchers
-a,domain,domains
-an,operating system,operating systems
-a,host,hosts
-a,runner,runners
-a,trigger,triggers
-a,transaction scope,transaction scopes
-an,isolation level,isolation levels
-the,metadata,metadata
-an,XML,XMLs
-a,runtime,runtimes
-a,data centre,data centres
-a,shelveset,shelvesets
-a,controller,controllers
-an,ID,IDs
-a,wizard,wizards
-a,notification,notifications
-a,dashboard,dashboards
-a,deadlock,deadlocks
-a,stack,stacks
-a,heap,heaps
-a,queue,queues
-a,batch file,batch files
-a,variable,variables
-the,IntelliSense,IntelliSense
-a,pointer,pointers
-a,dependency,dependencies
-a,procedure,procedures
-a,dialog,dialogs
-an,interface,interfaces
-a,class,classes
-an,object,objects
-a,buffer,buffers
-a,back-end,back-ends
-a,setting,settings
-a,process graph,process graphs
-a,mainframe,mainframes
-a,test suite,test suites
-a,chart,charts
-a,ribbon,ribbons
-a,kernel,kernels
-an,expression,expressions
-an,archive,archives
-a,console,consoles
-a,utility,utilities
-a,party key,party keys
-a,hub,hubs
-an,icon,icons
-a,policy,policies
-a,module,modules
-a,pipe,pipes
-a,code smell,code smells
-a,packet,packets
-a,packet sniffer,packet sniffers
-an,installation,installations
-a,registry,registries
-a,URL,URLs
-a,sandpit,sandpits
-a,protocol,protocols
-a,schema,schemas
-a,spooler,spoolers
-an,enum,enums
-a,modulator,modulators
-a,string,strings
-a,logic board,logic boards
-a,manifest,manifests
-a,backup,backups
-a,library,libraries
-a,transition phase,transition phases
-a,data warehouse,data warehouses
-a,VPN,VPNs
-a,meeting,meetings
-the,traffic,traffic
-a,message,messages
-a,pool,pools
-a,schedule,schedules
-a,relay,relays
-a,core,cores
-a,XAML,XAMLs
-a,wildcard,wildcards
-a,root,roots
-a,phase,phases
-a,node,nodes
-a,state,states
-an,outcome,outcomes
-a,data reader,data readers
-a,distributable,distributables
-a,gas factory,gas factories
-a,thumbprint,thumbprints
-a,service port,service ports
-a,workstream,workstreams
-a,roll-out,roll-outs
-a,monger,mongers
-a,broker,brokers
-a,lock,locks
-a,condition,conditions
-a,toolbar,toolbars
-a,singleton,singletons
-a,thread,threads
-a,constructor,constructors
-a,wiki,wikis
-a,subclass,subclasses
-a,stream,streams
-a,header,headers
-a,socket,sockets
-a,sink,sinks
-a,bit,bits
-a,byte,bytes
-a,nibble,nibbles
-a,context,contexts
-a,syntax,syntaxes
-a,synergy,synergies
-an,architecture,architectures
-a,DAT file,DAT files
-an,exchange server,exchange servers
-a,runbook,runbooks
-a,system,systems
-a,wrapper,wrappers
-a,foreign key,foreign keys
-a,primary key,primary keys
-a,provider,providers
-a,blob,blobs
-a,hash,hashes
-a,cipher,ciphers
-a,predicate,predicates
-an,enumerable,enumerables
-a,view model,view models
-a,property,properties
-a,chunk,chunks
-a,subroutine,subroutines
-a,delegate,delegates
-a,routine,routines
-a,function,functions
-a,workspace,workspaces
-a,proj file,proj files
-a,trunk,trunks
-a,factory,factories
-a,tag,tags
-a,vector,vectors
-an,engine,engines
-a,handshake,handshakes
-a,road map,road maps
-a,backing field,backing fields
-a,metabase,metabases
-an,algorithm,algorithms
-a,mechanism,mechanisms
-an,audit,audits
-a,DTO,DTOs
-a,reference,references
-a,relationship,relationships
-a,contract,contracts
-a,path,paths
-a,pathfinder,pathfinders
-a,bottleneck,bottlenecks
-a,CTE,CTEs
-a,formulary,formularies
-a,monitor,monitors
-a,func-eval,func-evals
-a,test system,test systems
-a,cluster,clusters
-a,timestamp,timestamps
-a,partition,partitions
-a,subscriber,subscribers
-a,process,processes
-an,extension,extensions
-a,replica,replicas
-an,orchestrator,orchestrators
-a,container,containers
-a,bootstrap,bootstraps
-an,S3 bucket,S3 buckets
+the,credentials,credentials,false
+a,repository,repositories,false
+a,farm,farms,false
+a,pool,pools,false
+a,server,servers,false
+a,service,services,false
+a,portal,portals,false
+a,port,ports,false
+an,API,APIs,true
+a,database,databases,true
+a,query,queries,false
+a,branch,branches,false
+an,end point,end points,true
+a,firewall,firewalls,true
+a,cache,caches,true
+a,garbage collector,garbage collectors,true
+a,spreadsheet,spreadsheets,true
+a,document,documents,false
+a,configuration,configurations,true
+a,GUID,GUIDs,true
+a,licence key,licence keys,true
+a,tablet,tablets,false
+a,subscription,subscriptions,false
+a,cookie,cookies,false
+an,SSD,SSDs,true
+a,hard drive,hard drives,true
+a,kanban,kanbans,true
+a,work item,work items,false
+a,folder,folders,false
+a,conflict,conflicts,false
+a,smart card,smart cards,true
+the,history,history,false
+the,RAM,RAM,true
+a,solution,solutions,false
+a,browser,browsers,false
+the,software,software,true
+a,tool,tools,false
+a,pending change,pending changes,true
+a,recycle bin,recycle bins,true
+a,bin folder,bin folders,true
+the,data,data,true
+a,transaction,transactions,false
+a,store,stores,false
+a,balancer,balancers,false
+a,bootstrapper,bootstrappers,true
+a,file,files,false
+a,package,packages,false
+a,resource,resources,false
+a,backlog,backlogs,false
+a,chipset,chipsets,true
+a,motherboard,motherboards,true
+an,enhancement,enhancements,false
+the,source code,source code,true
+a,web service,web services,true
+an,applet,applets,true
+an,error log,error logs,true
+a,hack,hacks,true
+a,template,templates,false
+an,add-on,add-ons,true
+a,plug-in,plug-ins,true
+a,framework,frameworks,true
+a,slave,slaves,false
+a,DLL,DLLs,true
+an,assembly,assemblies,false
+a,compiler,compilers,true
+a,formatter,formatters,false
+an,image,images,false
+an,attachment,attachments,false
+a,client,clients,false
+a,scheduler,schedulers,false
+a,quota,quotas,false
+a,script,scripts,false
+an,environment,environments,false
+an,index,indexes,false
+a,switcher,switchers,false
+a,domain,domains,false
+an,operating system,operating systems,true
+a,host,hosts,false
+a,runner,runners,false
+a,trigger,triggers,false
+a,transaction scope,transaction scopes,true
+an,isolation level,isolation levels,true
+the,metadata,metadata,true
+an,XML,XMLs,true
+a,runtime,runtimes,false
+a,data centre,data centres,true
+a,shelveset,shelvesets,true
+a,controller,controllers,false
+an,ID,IDs,false
+a,wizard,wizards,false
+a,notification,notifications,false
+a,dashboard,dashboards,false
+a,deadlock,deadlocks,false
+a,stack,stacks,false
+a,heap,heaps,false
+a,queue,queues,false
+a,batch file,batch files,false
+a,variable,variables,false
+the,IntelliSense,IntelliSense,true
+a,pointer,pointers,false
+a,dependency,dependencies,false
+a,procedure,procedures,false
+a,dialog,dialogs,false
+an,interface,interfaces,false
+a,class,classes,false
+an,object,objects,false
+a,buffer,buffers,true
+a,back-end,back-ends,true
+a,setting,settings,false
+a,process graph,process graphs,true
+a,mainframe,mainframes,true
+a,test suite,test suites,true
+a,chart,charts,false
+a,ribbon,ribbons,false
+a,kernel,kernels,true
+an,expression,expressions,false
+an,archive,archives,false
+a,console,consoles,false
+a,utility,utilities,false
+a,party key,party keys,true
+a,hub,hubs,false
+an,icon,icons,false
+a,policy,policies,false
+a,module,modules,false
+a,pipe,pipes,false
+a,code smell,code smells,true
+a,packet,packets,false
+a,packet sniffer,packet sniffers,true
+an,installation,installations,false
+a,registry,registries,false
+a,URL,URLs,true
+a,sandpit,sandpits,false
+a,protocol,protocols,false
+a,schema,schemas,true
+a,spooler,spoolers,true
+an,enum,enums,true
+a,modulator,modulators,false
+a,string,strings,false
+a,logic board,logic boards,true
+a,manifest,manifests,false
+a,backup,backups,false
+a,library,libraries,false
+a,transition phase,transition phases,false
+a,data warehouse,data warehouses,true
+a,VPN,VPNs,true
+a,meeting,meetings,false
+the,traffic,traffic,false
+a,message,messages,false
+a,pool,pools,false
+a,schedule,schedules,false
+a,relay,relays,false
+a,core,cores,false
+a,XAML,XAMLs,true
+a,wildcard,wildcards,false
+a,root,roots,false
+a,phase,phases,false
+a,node,nodes,false
+a,state,states,false
+an,outcome,outcomes,false
+a,data reader,data readers,true
+a,distributable,distributables,true
+a,gas factory,gas factories,true
+a,thumbprint,thumbprints,false
+a,service port,service ports,true
+a,workstream,workstreams,true
+a,roll-out,roll-outs,false
+a,monger,mongers,false
+a,broker,brokers,false
+a,lock,locks,false
+a,condition,conditions,false
+a,toolbar,toolbars,false
+a,singleton,singletons,true
+a,thread,threads,false
+a,constructor,constructors,true
+a,wiki,wikis,true
+a,subclass,subclasses,true
+a,stream,streams,false
+a,header,headers,false
+a,socket,sockets,false
+a,sink,sinks,false
+a,bit,bits,false
+a,byte,bytes,true
+a,nibble,nibbles,false
+a,context,contexts,false
+a,syntax,syntaxes,false
+a,synergy,synergies,false
+an,architecture,architectures,false
+a,DAT file,DAT files,true
+an,exchange server,exchange servers,true
+a,runbook,runbooks,false
+a,system,systems,false
+a,wrapper,wrappers,false
+a,foreign key,foreign keys,true
+a,primary key,primary keys,true
+a,provider,providers,false
+a,blob,blobs,false
+a,hash,hashes,false
+a,cipher,ciphers,false
+a,predicate,predicates,true
+an,enumerable,enumerables,false
+a,view model,view models,false
+a,property,properties,false
+a,chunk,chunks,false
+a,subroutine,subroutines,true
+a,delegate,delegates,false
+a,routine,routines,false
+a,function,functions,false
+a,workspace,workspaces,false
+a,proj file,proj files,true
+a,trunk,trunks,false
+a,factory,factories,false
+a,tag,tags,false
+a,vector,vectors,false
+an,engine,engines,false
+a,handshake,handshakes,false
+a,road map,road maps,false
+a,backing field,backing fields,true
+a,metabase,metabases,true
+an,algorithm,algorithms,true
+a,mechanism,mechanisms,false
+an,audit,audits,false
+a,DTO,DTOs,true
+a,reference,references,false
+a,relationship,relationships,false
+a,contract,contracts,false
+a,path,paths,false
+a,pathfinder,pathfinders,false
+a,bottleneck,bottlenecks,false
+a,CTE,CTEs,true
+a,formulary,formularies,false
+a,monitor,monitors,false
+a,func-eval,func-evals,true
+a,test system,test systems,true
+a,cluster,clusters,false
+a,timestamp,timestamps,false
+a,partition,partitions,false
+a,subscriber,subscribers,false
+a,process,processes,false
+an,extension,extensions,false
+a,replica,replicas,false
+an,orchestrator,orchestrators,true
+a,container,containers,false
+a,bootstrap,bootstraps,true
+an,S3 bucket,S3 buckets,true

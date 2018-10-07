@@ -32,78 +32,50 @@ namespace TechJargonBot.DebugConsole
 
 			while (true)
 			{
-				//var result = replyFactory.QueryAndSentence();
+				WriteConversation(twitterContext, replyFactory);
 
-				//Status status = null;
-
-				//var statuses =
-				//	await
-				//	twitterContext
-				//		.Search
-				//		.Where(
-				//			search => search.Type == SearchType.Search
-				//			&&
-				//			//search.Query == "(invalidate OR invalidating OR invalidated OR invalidates) AND (a CTE OR CTE OR CTEs)")
-				//			search.Query == "invalidate AND CTE")
-				//			//&&
-				//			//search.SearchLanguage == "en-gb"
-				//			//&&
-				//			//search.TweetMode == TweetMode.Extended)
-				//		.Single()
-				//		.Statuses;
-				//.FirstOrDefault();
-				//.ToList();
-
-				//Console.WriteLine(result.Item1);
-				//Console.WriteLine(result.Item2);
-
-				//(invalidate OR invalidating OR invalidated OR invalidates) AND(a CTE OR CTE OR CTEs)
-
-				//foreach (var status in statuses)
-				//{
-				//if (status != null)
-				//{
-				//	//Console.WriteLine("------------------------------------------------TWEET------------------------------------------------");
-				//	//Console.WriteLine(status.StatusID);
-				//	//Console.WriteLine(status.FullText);
-				//	//Console.WriteLine(status.FullText);
-
-				//}
-				//}
-				//else
-				//{
-				//	Console.WriteLine("No tweets found");
-				//}
-
-				GetTweets(twitterContext);
-
+				Console.WriteLine("Press any key...");
 				Console.Read();
 			}
 		}
 
-		private async static void GetTweets(TwitterContext twitterContext)
+		private async static void WriteConversation(
+			TwitterContext twitterContext,
+			TweetFactory.ReplyFactory replyFactory)
 		{
-			string searchTerm = "invalidate AND CTE";
+			Console.Clear();
 
-			Search searchResponse =
-				await
-				(from search in twitterContext.Search
-				 where search.Type == SearchType.Search &&
-					   search.Query == searchTerm &&
-					   search.IncludeEntities == true &&
-					   search.TweetMode == TweetMode.Extended
-				 select search)
-				.SingleOrDefaultAsync();
+			for (int i = 0; i < 9; i++)
+			{
+				Tuple<String, String> reply = replyFactory.GetSentenceAndQuery();
+				String sentence = reply.Item1;
+				String query = reply.Item2;
 
-			if (searchResponse?.Statuses != null)
-				searchResponse.Statuses.ForEach(tweet =>
-					Console.WriteLine(
-						"\n  User: {0} ({1})\n  Tweet: {2}",
-						tweet.User.ScreenNameResponse,
-						tweet.User.UserIDResponse,
-						tweet.Text ?? tweet.FullText));
-			else
-				Console.WriteLine("No entries found.");
+				Search searchResponse = await
+					twitterContext.Search
+					.Where(search =>
+						search.Type == SearchType.Search &&
+						search.Query == query &&
+						search.IncludeEntities == true &&
+						search.TweetMode == TweetMode.Extended &&
+						search.SearchLanguage == "en-gb")
+					.SingleOrDefaultAsync();
+
+				Console.WriteLine("Query: " + query);
+
+				if ((Boolean)(searchResponse?.Statuses != null) && (Boolean)(searchResponse?.Statuses.Any()))
+				{
+					var status = searchResponse.Statuses.FirstOrDefault();
+
+					Console.WriteLine();
+					Console.WriteLine(status.StatusID + ": " + status.FullText);
+					Console.WriteLine("> " + sentence);
+
+					return;
+				}
+
+				Console.WriteLine("No tweets found.");
+			}
 		}
 	}
 }

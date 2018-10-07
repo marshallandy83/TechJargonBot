@@ -20,6 +20,8 @@ namespace TechJargonBot.Vocabulary
 				TagWord,
 				TagExtractor.TagEndCharacter);
 
+		public String ValueInQuotes => "\"" + Value + "\"";
+
 		public Boolean HasTag(Tag tag)
 		{
 			return

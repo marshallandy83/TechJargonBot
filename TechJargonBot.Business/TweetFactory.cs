@@ -6,7 +6,9 @@ namespace TechJargonBot.Business
 {
 	internal abstract partial class TweetFactory
 	{
-		public TweetFactory(SentenceTemplateType sentenceType)
+		public TweetFactory(
+			SentenceTemplateType sentenceType,
+			Func<Word, Boolean> wordSuitabilityPredicate)
 		{
 			var stringFormatter = new RegularStringFormatter();
 
@@ -19,7 +21,8 @@ namespace TechJargonBot.Business
 								new RandomWordProvider(
 									dataProvider:
 										new DataProvider(
-											dataReader: new CsvFileReader())),
+											dataReader: new CsvFileReader()),
+									wordSuitabilityPredicate: wordSuitabilityPredicate),
 							stringFormatter: stringFormatter),
 					stringFormatter: stringFormatter);
 		}

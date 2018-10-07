@@ -28,10 +28,10 @@ namespace TechJargonBot.Console
 
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
-			//new TweetFactory.StatusUpdateFactory(),
-			new TweetFactory.ReplyFactory(
-				new Twitter.AllWordsQueryFactory(),
-				new Twitter.TweetFinder())
+			new TweetFactory.StatusUpdateFactory(),
+			//new TweetFactory.ReplyFactory(
+			//	new Twitter.AllWordsQueryFactory(),
+			//	new Twitter.TweetFinder())
 		};
 
 		static void Main(String[] args)

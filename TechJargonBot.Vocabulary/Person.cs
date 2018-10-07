@@ -12,6 +12,8 @@ namespace TechJargonBot.Vocabulary
 				{
 					new TwitterHandle(values[0])
 				});
+
+			IsDomainSpecific = true;
 		}
 	}
 }

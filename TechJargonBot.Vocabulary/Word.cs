@@ -7,5 +7,6 @@ namespace TechJargonBot.Vocabulary
 	{
 		public ReadOnlyCollection<Form> Forms { get; protected set; }
 		public Boolean IsSuitableForHashtag { get; set; }
+		public Boolean IsDomainSpecific { get; set; }
 	}
 }

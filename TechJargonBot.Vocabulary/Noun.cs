@@ -16,6 +16,7 @@ namespace TechJargonBot.Vocabulary
 				});
 
 			IsSuitableForHashtag = HashtagSuitabilityProvider.IsSuitableForHashtag(values);
+			IsDomainSpecific = Boolean.Parse(values[3]);
 		}
 	}
 }

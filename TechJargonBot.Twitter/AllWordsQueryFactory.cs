@@ -11,6 +11,6 @@ namespace TechJargonBot.Twitter
 		public string Create(IEnumerable<Word> words) =>
 			String.Join(" AND ", words.Select(word => QueryAny(word.Forms)));
 
-		private String QueryAny(ReadOnlyCollection<Form> forms) => $"({String.Join(" OR ", forms.Select(form => form.Value))})";
+		private String QueryAny(ReadOnlyCollection<Form> forms) => $"({String.Join(" OR ", forms.Select(form => form.ValueInQuotes))})";
 	}
 }
