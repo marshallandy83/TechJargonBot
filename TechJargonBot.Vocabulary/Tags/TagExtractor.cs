@@ -43,7 +43,13 @@ namespace TechJargonBot.Vocabulary.Tags
 			return
 				tags.Select(
 					tag => identifiersWithHashtags.Contains(tag.Identifier)
-					? new Tag(tag.TagString, tag.Identifier, (word) => word.IsSuitableForHashtag, new TagReplacer(), tag.IsForHashtag)
+					? new Tag(
+						tag.TagString,
+						tag.Identifier,
+						(word) => word.IsSuitableForHashtag,
+						new TagReplacer(),
+						tag.IsForHashtag,
+						tag.IsForMandatoryWord)
 					: tag);
 		}
 	}

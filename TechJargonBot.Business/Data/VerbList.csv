@@ -141,7 +141,7 @@ stub,stubbing,stubbed,stubs,false
 telnet onto,telnetting onto,telnetted onto,telnets onto,true
 lazy load,lazy loading,lazy loaded,lazy loads,true
 turn up the verbosity on,turning up the verbosity on,turned up the verbosity on,turns up the verbosity on,true
-ring-fence,ring-fencing,ring-fenced,ring-fences,true
+ring-fence,ring-fencing,ring-fenced,ring-fences,false
 append,appending,appended,appends,false
 bit-shift,bit-shifting,bit-shifted,bit-shifts,true
 optimise,optimising,optimised,optimises,false
@@ -208,4 +208,4 @@ solutionise,solutionising,solutionised,solutionises,true
 backport,backporting,backported,backports,true
 containerise,containerising,containerised,containerises,true
 transpile,transpiling,transpiled,transpiles,true
-cold start,cold starting,cold started,cold starts,true
+cold start,cold starting,cold started,cold starts,false

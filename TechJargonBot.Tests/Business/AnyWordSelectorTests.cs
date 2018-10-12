@@ -37,7 +37,7 @@ namespace TechJargonBot.Business.WordSelection
 		public void TestGetWords_GetsNewWordFromWordProvider_WhenCalledWithSingleTag()
 		{
 			AssertResults(
-				tags: new [] { new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false) },
+				tags: new [] { new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false, false) },
 				expectedWords: new [] { "Word 1" });
 		}
 
@@ -45,7 +45,7 @@ namespace TechJargonBot.Business.WordSelection
 		public void TestGetWords_GetsNewWordFromWordProvider_WhenCalledWithSingleIdentifiedTag()
 		{
 			AssertResults(
-				tags: new[] { new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false) },
+				tags: new[] { new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false) },
 				expectedWords: new[] { "Word 1" });
 		}
 
@@ -55,8 +55,8 @@ namespace TechJargonBot.Business.WordSelection
 			AssertResults(
 				tags: new[]
 				{
-					new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-					new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false)
+					new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+					new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false, false)
 				},
 				expectedWords: new[] { "Word 1", "Word 2" });
 		}
@@ -68,8 +68,8 @@ namespace TechJargonBot.Business.WordSelection
 				tags:
 					new[]
 					{
-						new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-						new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false)
+						new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+						new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false)
 					},
 				expectedWords: new[] { "Word 1", "Word 1" });
 		}
@@ -81,10 +81,10 @@ namespace TechJargonBot.Business.WordSelection
 				tags:
 					new[]
 						{
-							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-							new Tag(CreateTagString("[Tag]"), 2, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-							new Tag(CreateTagString("[Tag]"), 2, (_) => true, _wordSelectorFixture.MockTagReplacer, false)
+							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+							new Tag(CreateTagString("[Tag]"), 2, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+							new Tag(CreateTagString("[Tag]"), 2, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false)
 						},
 				expectedWords:
 					new[]
@@ -103,9 +103,9 @@ namespace TechJargonBot.Business.WordSelection
 				tags:
 					new[]
 						{
-							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false),
-							new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false)
+							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+							new Tag(CreateTagString("[Tag]"), 1, (_) => true, _wordSelectorFixture.MockTagReplacer, false, false),
+							new Tag(CreateTagString("[Tag]"), (_) => true, _wordSelectorFixture.MockTagReplacer, false, false)
 						},
 				expectedWords:
 					new[]

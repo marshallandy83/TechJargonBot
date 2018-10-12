@@ -15,6 +15,16 @@ namespace TechJargonBot.Vocabulary
 
 		public List<TagWithWord> TagsWithWords { get; }
 		public String Text { get; }
-		public IEnumerable<Word> AllWords => TagsWithWords.Select(tagWithWord => tagWithWord.Word);
+
+		public IEnumerable<Word> AllWords => TagsWithWords.Select(Word);
+
+		public IEnumerable<Word> AllMandatoryWords =>
+			TagsWithWords
+			.Where(tagWithWords => tagWithWords.Tag.IsForMandatoryWord)
+			.Select(Word);
+
+		public IEnumerable<Word> AllNonMandatoryWords => AllWords.Except(AllMandatoryWords);
+
+		private Word Word(TagWithWord tagWithWord) => tagWithWord.Word;
 	}
 }

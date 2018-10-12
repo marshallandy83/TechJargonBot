@@ -8,11 +8,10 @@ namespace TechJargonBot.Business
 	{
 		private static Random _randomNumberGenerator = new Random();
 
-		internal static T PickAtRandom<T>(this IEnumerable<T> collection)
-		{
-			return
-				collection
-					.ElementAt(_randomNumberGenerator.Next(collection.Count()));
-		}
+		internal static T PickAtRandom<T>(this IEnumerable<T> collection) =>
+			collection.ElementAt(_randomNumberGenerator.Next(collection.Count()));
+
+		internal static IEnumerable<T> PickSomeAtRandom<T>(this IEnumerable<T> collection) =>
+			collection.Where(item => new[] { true, false }.PickAtRandom());
 	}
 }

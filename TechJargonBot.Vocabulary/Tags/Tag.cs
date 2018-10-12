@@ -10,13 +10,15 @@ namespace TechJargonBot.Vocabulary.Tags
 			TagString tagString,
 			Func<Word, Boolean> wordSuitabilityPredicate,
 			ITagReplacer tagReplacer,
-			Boolean isForHashtag)
+			Boolean isForHashtag,
+			Boolean isForMandatoryWord)
 			: this(
 				  tagString: tagString,
 				  identifier: 0,
 				  wordSuitabilityPredicate: wordSuitabilityPredicate,
 				  tagReplacer: tagReplacer,
-				  isForHashtag: isForHashtag)
+				  isForHashtag: isForHashtag,
+				  isForMandatoryWord: isForMandatoryWord)
 		{
 		}
 
@@ -25,12 +27,14 @@ namespace TechJargonBot.Vocabulary.Tags
 			Byte identifier,
 			Func<Word, Boolean> wordSuitabilityPredicate,
 			ITagReplacer tagReplacer,
-			Boolean isForHashtag)
+			Boolean isForHashtag,
+			Boolean isForMandatoryWord)
 		{
 			TagString = tagString;
 			Identifier = identifier;
 			IsSuitable = wordSuitabilityPredicate;
 			IsForHashtag = isForHashtag;
+			IsForMandatoryWord = isForMandatoryWord;
 			_tagReplacer = tagReplacer;
 		}
 
@@ -46,6 +50,7 @@ namespace TechJargonBot.Vocabulary.Tags
 		public Byte Identifier { get; }
 		public Func<Word, Boolean> IsSuitable { get; }
 		public Boolean IsForHashtag { get; }
+		public Boolean IsForMandatoryWord { get; }
 
 		public bool Equals(Tag other)
 		{

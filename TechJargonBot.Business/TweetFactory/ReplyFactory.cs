@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechJargonBot.Business.Data;
 using TechJargonBot.Business.WordSelection;
 using TechJargonBot.Vocabulary;
@@ -35,9 +37,22 @@ namespace TechJargonBot.Business
 			{
 				Sentence sentence = SentenceGenerator.Generate();
 
-				String query = _queryFactory.Create(sentence.AllWords);
+				String query =
+					_queryFactory.Create(
+						PickWordsForQuery(sentence));
 
 				return new Tuple<String, String>(sentence.Text, query);
+			}
+
+			private IEnumerable<Word> PickWordsForQuery(Sentence sentence)
+			{
+				return
+					sentence
+					.AllMandatoryWords
+					.Concat(
+						sentence
+						.AllNonMandatoryWords
+						.PickSomeAtRandom());
 			}
 
 			public override String CreateTweet()

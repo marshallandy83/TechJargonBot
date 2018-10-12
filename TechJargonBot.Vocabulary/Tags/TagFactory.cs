@@ -6,6 +6,7 @@ namespace TechJargonBot.Vocabulary.Tags
 	public class TagFactory : ITagFactory
 	{
 		private Boolean _tagIsForHashtag;
+		private Boolean _tagIsForMandatoryWord;
 		private Func<Word, Boolean> _wordSuitabilityPredicate;
 		private String _rawTagString;
 		private String _sanitisedTagString;
@@ -16,6 +17,7 @@ namespace TechJargonBot.Vocabulary.Tags
 			_sanitisedTagString = tagString;
 
 			ProcessHashtag(tagString);
+			ProcessMandate(tagString);
 
 			var tagIdentifierString = Regex.Match(tagString, @"([\d])");
 
@@ -32,7 +34,8 @@ namespace TechJargonBot.Vocabulary.Tags
 					tagIdentifier,
 					_wordSuitabilityPredicate,
 					new TagReplacer(),
-					isForHashtag: _tagIsForHashtag);
+					isForHashtag: _tagIsForHashtag,
+					isForMandatoryWord: _tagIsForMandatoryWord);
 		}
 
 		private void ProcessHashtag(String tagString)
@@ -50,10 +53,21 @@ namespace TechJargonBot.Vocabulary.Tags
 			}
 		}
 
-		private Boolean TagIsForHashtag(String tagString)
+		private void ProcessMandate(String tagString)
 		{
-			return tagString[1] == '#';
+			if (TagIsForMandatoryWord(tagString))
+			{
+				_tagIsForMandatoryWord = true;
+				_sanitisedTagString = tagString.Remove(tagString.IndexOf('*'), 1);
+			}
+			else
+			{
+				_tagIsForMandatoryWord = false;
+			}
 		}
+
+		private Boolean TagIsForHashtag(String tagString) => tagString[1] == '#';
+		private Boolean TagIsForMandatoryWord(String tagString) => tagString[tagString.Length - 2] == '*';
 
 		private Byte SanitiseTagStringAndGetIdentifier(Match tagIdentifier)
 		{

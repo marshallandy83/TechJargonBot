@@ -11,6 +11,8 @@ namespace TechJargonBot.Business.WordSelection
 		private readonly IWordProvider _wordProvider;
 		private List<TagWithWord> _tagsWithWordsToReuse = new List<TagWithWord>();
 
+		public WordSelector() { }
+
 		public WordSelector(
 			IWordProvider wordProvider,
 			IStringFormatter stringFormatter)
@@ -19,7 +21,7 @@ namespace TechJargonBot.Business.WordSelection
 			_stringFormatter = stringFormatter;
 		}
 
-		protected IWordProvider WordProvider { get; }// => _wordProvider;
+		protected IWordProvider WordProvider { get; }
 
 		public abstract IEnumerable<TagWithWord> CreateTagsWithWords(IEnumerable<Tag> tags);
 

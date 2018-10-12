@@ -3,7 +3,7 @@ a,build-server,true
 a,certificate,false
 a,tSQLt,true
 a,JetNexus,true
-a,VM,true
+a,VM,false
 a,one-box,true
 a,TCP/IP,true
 a,network,false
@@ -214,7 +214,6 @@ a,differential,false
 a,WDL,true
 a,disrupted,false
 a,WIQL,true
-an,acute,false
 an,administration,false
 an,IG,false
 a,rationalised,false
@@ -260,3 +259,5 @@ a,pre-production,true
 a,sandbox,false
 a,Razor,true
 a,Blazor,true
+a,software,true
+a,hardware,true

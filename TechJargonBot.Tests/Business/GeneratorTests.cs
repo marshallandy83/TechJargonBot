@@ -105,7 +105,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch)
 				});
 		}
@@ -133,7 +134,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch),
 					CreateTagWithWord("[done]", _delete)
 				});
@@ -158,7 +160,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 				});
 		}
@@ -182,7 +185,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch),
 					new TagWithWord(
 						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
@@ -191,7 +195,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 				});
 		}
@@ -215,7 +220,8 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 					new TagWithWord(
 						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
@@ -224,15 +230,16 @@ namespace TechJargonBot.Business
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _server),
 				});
 		}
 
-		private static Word _patch => new Verb(new String[] { "patch", "patching", "patched", "patches" });
-		private static Word _delete => new Verb(new String[] { "delete", "deleting", "deleted", "deletes" });
-		private static Word _server => new Noun(new String[] { "a", "server", "servers" });
-		private static Word _authenticated => new Adjective(new String[] { "an", "authenticated" });
+		private static Word _patch => new Verb(new String[] { "patch", "patching", "patched", "patches", "false" });
+		private static Word _delete => new Verb(new String[] { "delete", "deleting", "deleted", "deletes", "false" });
+		private static Word _server => new Noun(new String[] { "a", "server", "servers", "false" });
+		private static Word _authenticated => new Adjective(new String[] { "an", "authenticated", "false" });
 
 		private TagWithWord CreateTagWithWord(String tagWord, Word word)
 		{
@@ -243,7 +250,8 @@ namespace TechJargonBot.Business
 						tagString: new TagString(tagWord, tagWord),
 						wordSuitabilityPredicate: (_) => true,
 						tagReplacer: new TagReplacer(),
-						isForHashtag: false),
+						isForHashtag: false,
+						isForMandatoryWord: false),
 					word);
 		}
 

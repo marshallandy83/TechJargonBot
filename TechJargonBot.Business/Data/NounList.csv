@@ -34,7 +34,6 @@ the,history,history,false
 the,RAM,RAM,true
 a,solution,solutions,false
 a,browser,browsers,false
-the,software,software,true
 a,tool,tools,false
 a,pending change,pending changes,true
 a,recycle bin,recycle bins,true
@@ -159,7 +158,7 @@ a,node,nodes,false
 a,state,states,false
 an,outcome,outcomes,false
 a,data reader,data readers,true
-a,distributable,distributables,true
+a,distributable,distributables,false
 a,gas factory,gas factories,true
 a,thumbprint,thumbprints,false
 a,service port,service ports,true
@@ -173,7 +172,7 @@ a,toolbar,toolbars,false
 a,singleton,singletons,true
 a,thread,threads,false
 a,constructor,constructors,true
-a,wiki,wikis,true
+a,wiki,wikis,false
 a,subclass,subclasses,true
 a,stream,streams,false
 a,header,headers,false
@@ -244,3 +243,4 @@ a,container,containers,false
 a,bootstrap,bootstraps,true
 an,S3 bucket,S3 buckets,true
 a,log,logs,false
+a,virtual machine,virtual machines,true
