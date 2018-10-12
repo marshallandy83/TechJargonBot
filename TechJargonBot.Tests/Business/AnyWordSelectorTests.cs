@@ -4,7 +4,7 @@ using Moq;
 using TechJargonBot.Vocabulary.Tags;
 using Xunit;
 
-namespace TechJargonBot.Business
+namespace TechJargonBot.Business.WordSelection
 {
 	public partial class RegularWordSelectorTests : IClassFixture<WordSelectorFixture>
 	{
@@ -18,7 +18,7 @@ namespace TechJargonBot.Business
 		private void AssertResults(Tag[] tags, String[] expectedWords)
 		{
 			var selector =
-				new RegularWordSelector(
+				new AnyWordSelector(
 					new MockWordProvider(),
 					CreateMockStringFormatter());
 

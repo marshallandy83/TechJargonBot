@@ -49,15 +49,17 @@
     <Compile Include="ISentenceTemplateProvider.cs" />
     <Compile Include="IStringFormatter.cs" />
     <Compile Include="IWordProvider.cs" />
-    <Compile Include="IWordSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomSentenceTemplateProvider.cs" />
     <Compile Include="RandomWordProvider.cs" />
-    <Compile Include="RegularWordSelector.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelector.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelector\TagWithWordProvider.cs" />
+    <Compile Include="WordSelection\WordSelector.cs" />
     <Compile Include="RegularStringFormatter.cs" />
     <Compile Include="TweetFactory.cs" />
     <Compile Include="TweetFactory\ReplyFactory.cs" />
     <Compile Include="TweetFactory\StatusUpdateFactory.cs" />
+    <Compile Include="WordSelection\AnyWordSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">

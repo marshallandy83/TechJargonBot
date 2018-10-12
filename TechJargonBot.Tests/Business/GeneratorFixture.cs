@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Moq;
+using TechJargonBot.Business.WordSelection;
 using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
@@ -20,9 +21,9 @@ namespace TechJargonBot.Business
 				.Text;
 		}
 
-		private IWordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)
+		private WordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)
 		{
-			var mockWordProvider = new Mock<IWordSelector>();
+			var mockWordProvider = new Mock<WordSelector>();
 
 			mockWordProvider.Setup(
 				wordProvider => wordProvider.CreateTagsWithWords(

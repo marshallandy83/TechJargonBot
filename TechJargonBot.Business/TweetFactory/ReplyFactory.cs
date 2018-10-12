@@ -1,4 +1,6 @@
 ﻿using System;
+using TechJargonBot.Business.Data;
+using TechJargonBot.Business.WordSelection;
 using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
@@ -14,8 +16,16 @@ namespace TechJargonBot.Business
 				Twitter.IQueryFactory queryFactory,
 				Twitter.TweetFinder tweetFinder)
 				: base(
-					  sentenceType: new SentenceTemplateType.Reply(),
-					  wordSuitabilityPredicate: word => word.IsDomainSpecific)
+					sentenceType: new SentenceTemplateType.Reply(),
+					wordSelector:
+						new DomainSpecificWordSelector(
+							wordProvider:
+								new RandomWordProvider(
+									dataProvider:
+										new DataProvider(
+											dataReader: new CsvFileReader()),
+									wordSuitabilityPredicate: word => true),
+							stringFormatter: new RegularStringFormatter()))
 			{
 				_queryFactory = queryFactory;
 				_tweetFinder = tweetFinder;

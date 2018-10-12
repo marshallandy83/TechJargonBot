@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using TechJargonBot.Business.WordSelection;
 using TechJargonBot.Vocabulary;
 using TechJargonBot.Vocabulary.Tags;
 
@@ -10,13 +11,13 @@ namespace TechJargonBot.Business
 	public class Generator
     {
 		private readonly ISentenceTemplateProvider _sentenceTemplateProvider;
-		private readonly IWordSelector _wordSelector;
+		private readonly WordSelector _wordSelector;
 		private readonly IStringFormatter _stringFormatter;
 		private readonly TagExtractor _tagExtractor;
 
 		internal Generator(
 			ISentenceTemplateProvider sentenceProvider,
-			IWordSelector wordSelector,
+			WordSelector wordSelector,
 			IStringFormatter stringFormatter)
 		{
 			_sentenceTemplateProvider = sentenceProvider;

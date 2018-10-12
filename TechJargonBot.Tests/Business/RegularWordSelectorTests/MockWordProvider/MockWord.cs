@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using TechJargonBot.Business.Data;
 using TechJargonBot.Vocabulary;
 
-namespace TechJargonBot.Business
+namespace TechJargonBot.Business.WordSelection
 {
 	partial class RegularWordSelectorTests
 	{

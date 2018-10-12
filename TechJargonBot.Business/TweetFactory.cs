@@ -1,5 +1,5 @@
 ﻿using System;
-using TechJargonBot.Business.Data;
+using TechJargonBot.Business.WordSelection;
 using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
@@ -8,23 +8,13 @@ namespace TechJargonBot.Business
 	{
 		public TweetFactory(
 			SentenceTemplateType sentenceType,
-			Func<Word, Boolean> wordSuitabilityPredicate)
+			WordSelector wordSelector)
 		{
-			var stringFormatter = new RegularStringFormatter();
-
 			 SentenceGenerator =
 				new Generator(
 					sentenceProvider: new RandomSentenceTemplateProvider(sentenceType),
-					wordSelector:
-						new RegularWordSelector(
-							wordProvider:
-								new RandomWordProvider(
-									dataProvider:
-										new DataProvider(
-											dataReader: new CsvFileReader()),
-									wordSuitabilityPredicate: wordSuitabilityPredicate),
-							stringFormatter: stringFormatter),
-					stringFormatter: stringFormatter);
+					wordSelector: wordSelector,
+					stringFormatter: new RegularStringFormatter());
 		}
 
 		protected Generator SentenceGenerator { get; }

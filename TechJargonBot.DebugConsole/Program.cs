@@ -39,17 +39,24 @@ namespace TechJargonBot.DebugConsole
 			}
 		}
 
+		private static String InQuotes(String text) => "\"" + text + "\"";
+
 		private async static void WriteConversation(
 			TwitterContext twitterContext,
 			TweetFactory.ReplyFactory replyFactory)
 		{
 			Console.Clear();
 
-			for (int i = 0; i < 9; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				Tuple<String, String> reply = replyFactory.GetSentenceAndQuery();
 				String sentence = reply.Item1;
 				String query = reply.Item2;
+				//String sentence = "The problem with hard drives is that the log always needs downloading.";
+				//String query =
+				//	$@"(" + InQuotes("hard drive") + " OR " + InQuotes("hard drives")
+				//	+ ") AND (" + InQuotes("log") + " OR " + InQuotes("logs")
+				//	+ ") AND (" + InQuotes("download") + " OR " + InQuotes("downloads") + " OR " + InQuotes("downloading") + " OR " + InQuotes("downloaded") + ")";
 
 				Search searchResponse = await
 					twitterContext.Search

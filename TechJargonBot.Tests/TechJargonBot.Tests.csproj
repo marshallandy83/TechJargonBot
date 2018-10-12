@@ -78,7 +78,7 @@
     <Compile Include="Business\Data\HashtagSuitabilityProviderTests.cs" />
     <Compile Include="Business\GeneratorTests.cs" />
     <Compile Include="Business\RegularStringFormatterTests.cs" />
-    <Compile Include="Business\RegularWordSelectorTests.cs" />
+    <Compile Include="Business\AnyWordSelectorTests.cs" />
     <Compile Include="Business\RegularWordSelectorTests\MockWordProvider.cs" />
     <Compile Include="Business\RegularWordSelectorTests\MockWordProvider\MockWord.cs" />
     <Compile Include="Business\RegularWordSelectorTests\MockWordProvider\MockWord\MockForm.cs" />

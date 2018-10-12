@@ -243,3 +243,4 @@ an,orchestrator,orchestrators,true
 a,container,containers,false
 a,bootstrap,bootstraps,true
 an,S3 bucket,S3 buckets,true
+a,log,logs,false

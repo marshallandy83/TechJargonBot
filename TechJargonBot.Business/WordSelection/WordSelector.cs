@@ -3,34 +3,36 @@ using System.Linq;
 using TechJargonBot.Vocabulary;
 using TechJargonBot.Vocabulary.Tags;
 
-namespace TechJargonBot.Business
+namespace TechJargonBot.Business.WordSelection
 {
-	internal class RegularWordSelector : IWordSelector
+	internal abstract class WordSelector
 	{
 		private readonly IStringFormatter _stringFormatter;
+		private readonly IWordProvider _wordProvider;
+		private List<TagWithWord> _tagsWithWordsToReuse = new List<TagWithWord>();
 
-		public RegularWordSelector(
+		public WordSelector(
 			IWordProvider wordProvider,
 			IStringFormatter stringFormatter)
 		{
-			_wordProvider = wordProvider;
+			WordProvider = wordProvider;
 			_stringFormatter = stringFormatter;
 		}
 
-		private List<TagWithWord> _tagsWithWordsToReuse = new List<TagWithWord>();
-		private readonly IWordProvider _wordProvider;
+		protected IWordProvider WordProvider { get; }// => _wordProvider;
 
-		public IEnumerable<TagWithWord> CreateTagsWithWords(IEnumerable<Tag> tags)
+		public abstract IEnumerable<TagWithWord> CreateTagsWithWords(IEnumerable<Tag> tags);
+
+		protected TagWithWord CreateTagWithWord(Tag tag, IWordProvider wordProvider)
 		{
 			return
-				tags.Select(tag =>
-					new TagWithWord(
-						formatString: (wordToFormat, tagString) => _stringFormatter.FormatString(wordToFormat, tagString),
-						tag: tag,
-						word:
-							tag.HasIdentifer
-								? CreateWordFromIdentifiedTag(tag)
-								: _wordProvider.GetNewWord(tag)));
+				new TagWithWord(
+					formatString: (wordToFormat, tagString) => _stringFormatter.FormatString(wordToFormat, tagString),
+					tag: tag,
+					word:
+						tag.HasIdentifer
+							? CreateWordFromIdentifiedTag(tag)
+							: wordProvider.GetNewWord(tag));
 		}
 
 		private Word CreateWordFromIdentifiedTag(Tag tag)
@@ -47,7 +49,7 @@ namespace TechJargonBot.Business
 			}
 			else
 			{
-				word = _wordProvider.GetNewWord(tag);
+				word = WordProvider.GetNewWord(tag);
 
 				_tagsWithWordsToReuse.Add(
 					new TagWithWord(
