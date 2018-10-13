@@ -191,7 +191,7 @@ encapsulate,encapsulating,encapsulated,encapsulates,false
 split,splitting,split,splits,false
 isolate,isolating,isolated,isolates,false
 invert,inverting,inverted,inverts,false
-nullify,nullifying,nullified,nullifies,true
+nullify,nullifying,nullified,nullifies,false
 print out,printing out,printed out,prints out,false
 disrupt,disrupting,disrupted,disrupts,false
 improve,improving,improved,improves,false
@@ -209,3 +209,4 @@ backport,backporting,backported,backports,true
 containerise,containerising,containerised,containerises,true
 transpile,transpiling,transpiled,transpiles,true
 cold start,cold starting,cold started,cold starts,false
+root,rooting,rooted,roots,false

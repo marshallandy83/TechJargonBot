@@ -244,3 +244,14 @@ a,bootstrap,bootstraps,true
 an,S3 bucket,S3 buckets,true
 a,log,logs,false
 a,virtual machine,virtual machines,true
+a,bitmap,bitmaps,true
+a,compression,compressions,false
+a,compression algorithm,compression algorithms,true
+an,encryption,encryptions,true
+an,emulator,emulators,true
+an,end user,end users,false
+a,GUI,GUIs,true
+a,git repository,git repositories,true
+a,JPEG,JPEGs,true
+a,service pack,service packs,true
+a,virus,viruses,false
