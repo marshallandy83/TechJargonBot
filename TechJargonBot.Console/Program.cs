@@ -8,11 +8,6 @@ namespace TechJargonBot.Console
 {
 	class Program
 	{
-		private const Int32 MinimumNumberOfHoursBetweenTweets = 0;
-		private const Int32 MaximumNumberOfHoursBetweenTweets = 0;
-		private const Int32 MinimumNumberOfMinutesBetweenTweets = 50;
-		private const Int32 MaximumNumberOfMinutesBetweenTweets = 59;
-
 		private static TwitterContext _twitterContext =
 			new TwitterContext(
 				new SingleUserAuthorizer
@@ -25,6 +20,8 @@ namespace TechJargonBot.Console
 						OAuthTokenSecret = ConfigurationManager.AppSettings["AccessTokenSecret"],
 					}
 				});
+
+		private static TimingHandler _timingHandler = new TimingHandler();
 
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
@@ -44,32 +41,12 @@ namespace TechJargonBot.Console
 					.PickAtRandom()
 					.SendTweet();
 
-				TimeSpan timeUntilNextTweet = GetRandomTimeSpan();
+				DateTime nextTweetTime = _timingHandler.GetNextTweetTime();
 
-				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
+				OutputToConsole(tweet, nextTweetTime);
 
-				Thread.Sleep(timeUntilNextTweet);
+				Thread.Sleep(nextTweetTime - DateTime.Now);
 			}
-		}
-
-		private static Random _randomTimeSpanGenerator = new Random();
-
-		private static TimeSpan GetRandomTimeSpan()
-		{
-			return
-				new TimeSpan(
-					hours: _randomTimeSpanGenerator.Next(
-						MinimumNumberOfHoursBetweenTweets,
-						MaximumNumberOfHoursBetweenTweets),
-					minutes: _randomTimeSpanGenerator.Next(
-						MinimumNumberOfMinutesBetweenTweets,
-						MaximumNumberOfMinutesBetweenTweets),
-					seconds: 0);
-		}
-
-		private static DateTime GetNextTweetTime(TimeSpan timeUntilNextTweet)
-		{
-			return DateTime.Now.Add(timeUntilNextTweet);
 		}
 
 		private static void OutputToConsole(
