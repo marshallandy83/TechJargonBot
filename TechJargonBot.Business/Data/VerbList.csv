@@ -117,7 +117,7 @@ repolarise,repolarising,repolarised,repolarises,true
 calibrate,calibrating,calibrated,calibrates,true
 drill down into,drilling down into,drilled down into,drills down into,true
 propagate,propagating,propagated,propagates,true
-back up,backing up,backed up,backs up,true
+back up,backing up,backed up,backs up,false
 transpose,transposing,transposed,transposes,true
 stream,streaming,streamed,streams,false
 streamline,streamlining,streamlined,streamlines,false

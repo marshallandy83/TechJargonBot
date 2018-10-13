@@ -16,8 +16,8 @@ namespace TechJargonBot.Vocabulary.Tags
 			_rawTagString = tagString;
 			_sanitisedTagString = tagString;
 
-			ProcessHashtag(tagString);
-			ProcessMandate(tagString);
+			ProcessHashtag(_sanitisedTagString);
+			ProcessMandate(_sanitisedTagString);
 
 			var tagIdentifierString = Regex.Match(tagString, @"([\d])");
 

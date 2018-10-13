@@ -223,7 +223,7 @@ a,Owin,true
 a,Kafka,true
 a,pub/sub,true
 a,fault-tolerant,true
-a,round-robin,true
+a,round-robin,false
 a,semantic,false
 a,logical,false
 an,exclusive,false
@@ -257,7 +257,7 @@ a,Gulp,false
 a,YAML,true
 a,pre-production,true
 a,sandbox,false
-a,Razor,true
+a,Razor,false
 a,Blazor,true
 a,software,true
 a,hardware,true

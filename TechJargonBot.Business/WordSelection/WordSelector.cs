@@ -8,7 +8,6 @@ namespace TechJargonBot.Business.WordSelection
 	internal abstract class WordSelector
 	{
 		private readonly IStringFormatter _stringFormatter;
-		private readonly IWordProvider _wordProvider;
 		private List<TagWithWord> _tagsWithWordsToReuse = new List<TagWithWord>();
 
 		public WordSelector() { }

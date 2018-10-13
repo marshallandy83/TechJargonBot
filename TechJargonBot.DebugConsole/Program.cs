@@ -27,8 +27,9 @@ namespace TechJargonBot.DebugConsole
 					});
 
 			var replyFactory = new TweetFactory.ReplyFactory(
+				twitterContext,
 				new Twitter.AllWordsQueryFactory(),
-				new Twitter.TweetFinder());
+				new Twitter.TweetFinder(twitterContext));
 
 			while (true)
 			{

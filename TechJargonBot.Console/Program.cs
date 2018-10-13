@@ -8,12 +8,12 @@ namespace TechJargonBot.Console
 {
 	class Program
 	{
-		private const Int32 MinimumNumberOfHoursBetweenTweets = 3;
-		private const Int32 MaximumNumberOfHoursBetweenTweets = 5;
-		private const Int32 MinimumNumberOfMinutesBetweenTweets = 0;
+		private const Int32 MinimumNumberOfHoursBetweenTweets = 0;
+		private const Int32 MaximumNumberOfHoursBetweenTweets = 0;
+		private const Int32 MinimumNumberOfMinutesBetweenTweets = 50;
 		private const Int32 MaximumNumberOfMinutesBetweenTweets = 59;
 
-		private static TwitterContext twitterContext =
+		private static TwitterContext _twitterContext =
 			new TwitterContext(
 				new SingleUserAuthorizer
 				{
@@ -28,10 +28,11 @@ namespace TechJargonBot.Console
 
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{
-			//new TweetFactory.StatusUpdateFactory(),
+			//new TweetFactory.StatusUpdateFactory(_twitterContext),
 			new TweetFactory.ReplyFactory(
+				_twitterContext,
 				new Twitter.AllWordsQueryFactory(),
-				new Twitter.TweetFinder())
+				new Twitter.TweetFinder(_twitterContext))
 		};
 
 		static void Main(String[] args)
@@ -41,11 +42,10 @@ namespace TechJargonBot.Console
 				String tweet =
 					TweetFactories
 					.PickAtRandom()
-					.CreateTweet();
+					.SendTweet();
 
 				TimeSpan timeUntilNextTweet = GetRandomTimeSpan();
 
-				SendTweet(twitterContext, tweet);
 				OutputToConsole(tweet, GetNextTweetTime(timeUntilNextTweet));
 
 				Thread.Sleep(timeUntilNextTweet);
@@ -78,13 +78,6 @@ namespace TechJargonBot.Console
 		{
 			System.Console.WriteLine(sentence);
 			System.Console.WriteLine($"The next tweet will be at {nextTweetTime.ToShortTimeString()}.");
-		}
-
-		private async static void SendTweet(
-			TwitterContext twitterContext,
-			String sentence)
-		{
-			var result = await twitterContext.TweetAsync(sentence);
 		}
 	}
 }

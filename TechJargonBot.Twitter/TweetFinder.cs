@@ -1,13 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using LinqToTwitter;
 
 namespace TechJargonBot.Twitter
 {
 	public class TweetFinder
 	{
-		public object FindTweet(ICollection<String> randomWords)
+		private readonly TwitterContext _twitterContext;
+
+		public TweetFinder(TwitterContext twitterContext)
 		{
-			throw new NotImplementedException();
+			_twitterContext = twitterContext;
 		}
+
+		public async Task<Status> FindTweet(String query)
+		{
+			Search searchResponse = await
+				_twitterContext.Search
+				.Where(search =>
+					search.Type == SearchType.Search &&
+					search.Query == query &&
+					search.IncludeEntities == true &&
+					search.TweetMode == TweetMode.Extended &&
+					search.SearchLanguage == "en-gb")
+				.SingleOrDefaultAsync();
+
+			return
+				((Boolean)(searchResponse?.Statuses != null) && (Boolean)(searchResponse?.Statuses.Any()))
+				? searchResponse.Statuses.FirstOrDefault()
+				: new NoStatus();
+		}
+	}
+
+	public class NoStatus : Status
+	{
 	}
 }
