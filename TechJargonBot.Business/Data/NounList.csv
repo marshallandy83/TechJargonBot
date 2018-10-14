@@ -38,7 +38,6 @@ a,tool,tools,false
 a,pending change,pending changes,true
 a,recycle bin,recycle bins,true
 a,bin folder,bin folders,true
-the,data,data,true
 a,transaction,transactions,false
 a,store,stores,false
 a,balancer,balancers,false

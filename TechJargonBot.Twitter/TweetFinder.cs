@@ -16,7 +16,11 @@ namespace TechJargonBot.Twitter
 
 		public async Task<Status> FindTweet(String query)
 		{
-			Search searchResponse = await
+			Search searchResponse = null;
+
+			try
+			{
+				searchResponse = await
 				_twitterContext.Search
 				.Where(search =>
 					search.Type == SearchType.Search &&
@@ -25,6 +29,10 @@ namespace TechJargonBot.Twitter
 					search.TweetMode == TweetMode.Extended &&
 					search.SearchLanguage == "en-gb")
 				.SingleOrDefaultAsync();
+			}
+			catch (Exception)
+			{
+			}
 
 			return
 				((Boolean)(searchResponse?.Statuses != null) && (Boolean)(searchResponse?.Statuses.Any()))
