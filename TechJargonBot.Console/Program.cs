@@ -21,7 +21,10 @@ namespace TechJargonBot.Console
 					}
 				});
 
-		private static TimingHandler _timingHandler = new TimingHandler();
+		private static TimingHandler _timingHandler =
+			new TimingHandler(
+				minimumTimeBeforeNextTweet: new TimeSpan(hours: 0, minutes: 45, seconds: 0),
+				maximumTimeBeforeNextTweet: new TimeSpan(hours: 1, minutes: 30, seconds: 0));
 
 		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
 		{

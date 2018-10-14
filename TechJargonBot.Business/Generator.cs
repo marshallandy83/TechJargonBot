@@ -11,17 +11,17 @@ namespace TechJargonBot.Business
 	public class Generator
     {
 		private readonly ISentenceTemplateProvider _sentenceTemplateProvider;
-		private readonly WordSelector _wordSelector;
+		private readonly IWordSelectorFactory _wordSelectorFactory;
 		private readonly IStringFormatter _stringFormatter;
 		private readonly TagExtractor _tagExtractor;
 
 		internal Generator(
 			ISentenceTemplateProvider sentenceProvider,
-			WordSelector wordSelector,
+			IWordSelectorFactory wordSelectorFactory,
 			IStringFormatter stringFormatter)
 		{
 			_sentenceTemplateProvider = sentenceProvider;
-			_wordSelector = wordSelector;
+			_wordSelectorFactory = wordSelectorFactory;
 			_stringFormatter = stringFormatter;
 
 			_tagExtractor =
@@ -39,7 +39,8 @@ namespace TechJargonBot.Business
 			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentenceTemplate);
 
 			List<TagWithWord> tagsWithRandomWords =
-				_wordSelector.CreateTagsWithWords(tags).ToList();
+				_wordSelectorFactory.Create()
+					.CreateTagsWithWords(tags).ToList();
 
 			return
 				new Sentence(

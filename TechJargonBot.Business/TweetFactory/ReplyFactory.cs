@@ -25,15 +25,7 @@ namespace TechJargonBot.Business
 				: base(
 					twitterContext: twitterContext,
 					sentenceType: new SentenceTemplateType.Reply(),
-					wordSelector:
-						new DomainSpecificWordSelector(
-							wordProvider:
-								new RandomWordProvider(
-									dataProvider:
-										new DataProvider(
-											dataReader: new CsvFileReader()),
-									wordSuitabilityPredicate: word => true),
-							stringFormatter: new RegularStringFormatter()))
+					wordSelectorFactory: new DomainSpecificWordSelectorFactory())
 			{
 				_queryFactory = queryFactory;
 				_tweetFinder = tweetFinder;
@@ -67,7 +59,9 @@ namespace TechJargonBot.Business
 				{
 					Sentence sentence = SentenceGenerator.Generate();
 
-					String query = _queryFactory.Create(sentence.AllWords);
+					String query =
+						_queryFactory.Create(
+							PickWordsForQuery(sentence));
 
 					Status tweet = _tweetFinder.FindTweet(query).Result;
 

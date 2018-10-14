@@ -10,14 +10,14 @@ namespace TechJargonBot.Business
 		public TweetFactory(
 			TwitterContext twitterContext,
 			SentenceTemplateType sentenceType,
-			WordSelector wordSelector)
+			IWordSelectorFactory wordSelectorFactory)
 		{
 			TwitterContext = twitterContext;
 
 			 SentenceGenerator =
 				new Generator(
 					sentenceProvider: new RandomSentenceTemplateProvider(sentenceType),
-					wordSelector: wordSelector,
+					wordSelectorFactory: wordSelectorFactory,
 					stringFormatter: new RegularStringFormatter());
 		}
 

@@ -73,6 +73,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomSentenceTemplateProvider.cs" />
     <Compile Include="RandomWordProvider.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelectorFactory.cs" />
+    <Compile Include="WordSelection\AnyWordSelectorFactory.cs" />
+    <Compile Include="WordSelection\IWordSelectorFactory.cs" />
     <Compile Include="WordSelection\DomainSpecificWordSelector.cs" />
     <Compile Include="WordSelection\DomainSpecificWordSelector\TagWithWordProvider.cs" />
     <Compile Include="WordSelection\WordSelector.cs" />

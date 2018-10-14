@@ -18,7 +18,6 @@ namespace TechJargonBot.Vocabulary.Tags
 		[InlineData(new String[] { "[do]", "[thing]", "[thing]" }, "[do] this [thing] and this [thing]")]
 		[InlineData(new String[] { "[do]", "[more complicated thing]" }, "[do] this [more complicated thing]")]
 		[InlineData(new String[] { "[do]", "[indentifiable]", "[things]" }, "[do1] [indentifiable2] [things3]")]
-		[InlineData(new String[] { "[HashtagThing]" }, "[#HashtagThing]")]
 		public void TestExtractTags(
 			String[] expectedTagStrings,
 			String sentence)

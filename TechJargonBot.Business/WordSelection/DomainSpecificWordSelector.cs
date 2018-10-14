@@ -7,8 +7,6 @@ namespace TechJargonBot.Business.WordSelection
 {
 	internal partial class DomainSpecificWordSelector : WordSelector
 	{
-		private const Int32 _minimumNumberOfDomainSpecificWordsToUse = 1;
-
 		private readonly IWordProvider _domainSpecificWordProvider =
 			new RandomWordProvider(
 				new DataProvider(
@@ -31,7 +29,7 @@ namespace TechJargonBot.Business.WordSelection
 
 		private ICollection<TagWithWordProvider> AssignWordProvidersToTags(IEnumerable<Tag> tags)
 		{
-			Tag tagForDomainSpecificWord = tags.PickAtRandom();
+			Tag tagForDomainSpecificWord = tags.Where(tag => tag.IsForMandatoryWord).PickAtRandom();
 
 			return
 				new[]

@@ -14,21 +14,13 @@ namespace TechJargonBot.Business
 				: base(
 					twitterContext: twitterContext,
 					sentenceType: new SentenceTemplateType.Status(),
-					wordSelector:
-						new AnyWordSelector(
-							wordProvider:
-								new RandomWordProvider(
-									dataProvider:
-										new DataProvider(
-											dataReader: new CsvFileReader()),
-									wordSuitabilityPredicate: word => true),
-							stringFormatter: new RegularStringFormatter()))
+					wordSelectorFactory: new AnyWordSelectorFactory())
 			{
 			}
 
 			public override String SendTweet()
 			{
-				String statusUpdate = SentenceGenerator.Generate().Text;
+				String statusUpdate = SentenceGenerator.Generate("Everybody talks about [doing1] the [things] but nobody ever mentions [doing1] the [things].").Text;
 
 				PostStatusUpdate(statusUpdate);
 

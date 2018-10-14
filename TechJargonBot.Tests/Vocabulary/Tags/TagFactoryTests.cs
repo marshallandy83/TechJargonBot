@@ -35,35 +35,28 @@ namespace TechJargonBot.Vocabulary.Tags
 			}
 		}
 
-		[Fact]
-		public void TestCreateTag_ReturnsCorrectTag_WithSentenceContainingTagWithIdentifier()
+		[Theory]
+		[InlineData("[thing]", "[thing]", 0, false, false)]
+		[InlineData("[thing with identifier1]", "[thing with identifier]", 1, false, false)]
+		[InlineData("[#thing for hashtag]", "[thing for hashtag]", 0, true, false)]
+		[InlineData("[mandatory thing*]", "[mandatory thing]", 0, false, true)]
+		[InlineData("[#thing with identifier for hashtag1]", "[thing with identifier for hashtag]", 1, true, false)]
+		[InlineData("[mandatory thing with identifier1*]", "[mandatory thing with identifier]", 1, false, true)]
+		[InlineData("[#mandatory thing for hashtag*]", "[mandatory thing for hashtag]", 0, true, true)]
+		[InlineData("[#mandatory thing with identifier for hashtag1*]", "[mandatory thing with identifier for hashtag]", 1, true, true)]
+		public void TestCreateTag_ReturnsCorrectTag_WithSentenceContainingTagWithIdentifier(
+			String tagString,
+			String expectedSanitisedTagString,
+			Int32 expectedIdentifier,
+			Boolean expectedIsForHashtag,
+			Boolean expectedIsMandatory)
 		{
-			var tagString = "[do1]";
-
 			var tag = new TagFactory().CreateTag(tagString);
 
-			Assert.Equal("[do]", tag.TagString.Sanitised);
-			Assert.Equal(1, tag.Identifier);
-		}
-
-		[Fact]
-		public void TestCreateTag_ReturnsCorrectTag_WithSentenceContainingTagWithHashtagMarker()
-		{
-			var tagString = "[#thing]";
-
-			var tag = new TagFactory().CreateTag(tagString);
-
-			Assert.Equal("[thing]", tag.TagString.Sanitised);
-		}
-
-		[Fact]
-		public void TestCreateTag_ReturnsCorrectTag_WithSentenceContainingTagWithIdentifierAndHashtagMarker()
-		{
-			var tagString = "[#thing1]";
-
-			var tag = new TagFactory().CreateTag(tagString);
-
-			Assert.Equal("[thing]", tag.TagString.Sanitised);
+			Assert.Equal(expectedSanitisedTagString, tag.TagString.Sanitised);
+			Assert.Equal(expectedIdentifier, tag.Identifier);
+			Assert.Equal(expectedIsForHashtag, tag.IsForHashtag);
+			Assert.Equal(expectedIsMandatory, tag.IsForMandatoryWord);
 		}
 	}
 }

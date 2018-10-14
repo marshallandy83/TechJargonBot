@@ -17,7 +17,11 @@ namespace TechJargonBot.Business
 		{
 			Assert.Equal(
 				expected: expectedString,
-				actual: new RegularStringFormatter().FormatString(inputString, new TagString(tag, tag)));
+				actual:
+					new RegularStringFormatter()
+					.FormatString(
+						inputString,
+						new TagString(tag, tag)));
 		}
 	}
 }

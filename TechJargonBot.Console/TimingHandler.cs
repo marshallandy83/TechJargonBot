@@ -4,10 +4,17 @@ namespace TechJargonBot.Console
 {
 	internal class TimingHandler
 	{
-		private static readonly TimeSpan _minimumTimeBeforeNextTweet = new TimeSpan(hours: 0, minutes: 45, seconds: 0);
-		private static readonly TimeSpan _maximumTimeBeforeNextTweet = new TimeSpan(hours: 2, minutes: 0, seconds: 0);
+		private readonly Random _randomTimeSpanGenerator = new Random();
+		private readonly TimeSpan _minimumTimeBeforeNextTweet;
+		private readonly TimeSpan _maximumTimeBeforeNextTweet;
 
-		private Random _randomTimeSpanGenerator = new Random();
+		public TimingHandler(
+			TimeSpan minimumTimeBeforeNextTweet,
+			TimeSpan maximumTimeBeforeNextTweet)
+		{
+			_minimumTimeBeforeNextTweet = minimumTimeBeforeNextTweet;
+			_maximumTimeBeforeNextTweet = maximumTimeBeforeNextTweet;
+		}
 
 		public DateTime GetNextTweetTime() =>
 			DateTime.Now.AddMilliseconds(

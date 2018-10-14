@@ -15,10 +15,17 @@ namespace TechJargonBot.Business
 			return
 				new Generator(
 					sentenceProvider: null,
-					wordSelector: CreateMockWordProvider(tagsWithWords),
+					wordSelectorFactory: CreateMockWordSelectorFactory(tagsWithWords),
 					stringFormatter: new RegularStringFormatter())
 				.Generate(sentence)
 				.Text;
+		}
+
+		private IWordSelectorFactory CreateMockWordSelectorFactory(IEnumerable<TagWithWord> tagsWithWords)
+		{
+			var mockWordSelectorFactory = new Mock<IWordSelectorFactory>();
+			mockWordSelectorFactory.Setup(wordSelectorFactory => wordSelectorFactory.Create()).Returns(CreateMockWordProvider(tagsWithWords));
+			return mockWordSelectorFactory.Object;
 		}
 
 		private WordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)

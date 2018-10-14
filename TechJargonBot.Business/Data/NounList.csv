@@ -11,7 +11,7 @@ an,API,APIs,true
 a,database,databases,true
 a,query,queries,false
 a,branch,branches,false
-an,end point,end points,true
+an,end point,end points,false
 a,firewall,firewalls,true
 a,cache,caches,true
 a,garbage collector,garbage collectors,true
