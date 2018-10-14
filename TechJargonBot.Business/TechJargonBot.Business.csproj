@@ -30,8 +30,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LinqToTwitter.AspNet, Version=4.2.1.41314, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\linqtotwitter.4.2.1\lib\net45\LinqToTwitter.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToTwitter.net, Version=4.2.1.41313, Culture=neutral, PublicKeyToken=957107be965c25d9, processorArchitecture=MSIL">
+      <HintPath>..\packages\linqtotwitter.4.2.1\lib\net45\LinqToTwitter.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,57 +62,48 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
-    <Compile Include="Data\Adjective\WithArticle.cs" />
-    <Compile Include="Data\HashtagSuitabilityProvider.cs" />
     <Compile Include="Data\IDataReader.cs" />
-    <Compile Include="Data\Adjective.cs" />
-    <Compile Include="Data\Tags\ITagFactory.cs" />
-    <Compile Include="Data\Person.cs" />
-    <Compile Include="Data\Noun\SingularWithArticle.cs" />
-    <Compile Include="Data\Noun\SingularWithoutArticle.cs" />
-    <Compile Include="Data\Noun\Plural.cs" />
-    <Compile Include="Data\Adjective\WithoutArticle.cs" />
-    <Compile Include="Data\Person\TwitterHandle.cs" />
-    <Compile Include="Data\Tags\ITagReplacer.cs" />
-    <Compile Include="Data\Tags\TagExtractor.cs" />
-    <Compile Include="Data\Noun.cs" />
-    <Compile Include="Data\Tags\TagReplacer.cs" />
-    <Compile Include="Data\Tags\TagString.cs" />
-    <Compile Include="Data\Verb\PastParticiple.cs" />
-    <Compile Include="Data\Verb\ThirdPersonSingular.cs" />
-    <Compile Include="Data\Verb\PresentParticiple.cs" />
-    <Compile Include="Data\Verb\Root.cs" />
-    <Compile Include="Data\Word.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Generator.cs" />
-    <Compile Include="Data\Form.cs" />
     <Compile Include="Data\CsvFileReader.cs" />
-    <Compile Include="Data\Verb.cs" />
     <Compile Include="IDataProvider.cs" />
-    <Compile Include="ISentenceProvider.cs" />
+    <Compile Include="ISentenceTemplateProvider.cs" />
     <Compile Include="IStringFormatter.cs" />
-    <Compile Include="Data\Tags\ITagWithWord.cs" />
     <Compile Include="IWordProvider.cs" />
-    <Compile Include="IWordSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RandomSentenceProvider.cs" />
+    <Compile Include="RandomSentenceTemplateProvider.cs" />
     <Compile Include="RandomWordProvider.cs" />
-    <Compile Include="RegularWordSelector.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelectorFactory.cs" />
+    <Compile Include="WordSelection\AnyWordSelectorFactory.cs" />
+    <Compile Include="WordSelection\IWordSelectorFactory.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelector.cs" />
+    <Compile Include="WordSelection\DomainSpecificWordSelector\TagWithWordProvider.cs" />
+    <Compile Include="WordSelection\WordSelector.cs" />
     <Compile Include="RegularStringFormatter.cs" />
-    <Compile Include="Data\Tags\Tag.cs" />
-    <Compile Include="Data\Tags\TagFactory.cs" />
-    <Compile Include="Data\Tags\TagWithWord.cs" />
     <Compile Include="TweetFactory.cs" />
     <Compile Include="TweetFactory\ReplyFactory.cs" />
     <Compile Include="TweetFactory\StatusUpdateFactory.cs" />
+    <Compile Include="WordSelection\AnyWordSelector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
+      <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
+      <Name>TechJargonBot.Twitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj">
+      <Project>{94d608c8-2bd1-4328-ab78-7afd223f841e}</Project>
+      <Name>TechJargonBot.Vocabulary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\AdjectiveList.csv" />
+    <None Include="Data\NounList.csv" />
+    <None Include="Data\PersonList.csv" />
+    <None Include="Data\Reply\List.csv" />
+    <None Include="Data\Status\List.csv" />
+    <None Include="Data\VerbList.csv" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="Data\Adjective\List.csv" />
-    <None Include="Data\Noun\List.csv" />
-    <None Include="Data\Person\List.csv" />
-    <None Include="Data\Sentences.csv" />
-    <None Include="Data\Verb\List.csv" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

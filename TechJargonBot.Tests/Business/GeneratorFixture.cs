@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Moq;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Business.WordSelection;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {
@@ -14,14 +15,22 @@ namespace TechJargonBot.Business
 			return
 				new Generator(
 					sentenceProvider: null,
-					wordSelector: CreateMockWordProvider(tagsWithWords),
+					wordSelectorFactory: CreateMockWordSelectorFactory(tagsWithWords),
 					stringFormatter: new RegularStringFormatter())
-					.Generate(sentence);
+				.Generate(sentence)
+				.Text;
 		}
 
-		private IWordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)
+		private IWordSelectorFactory CreateMockWordSelectorFactory(IEnumerable<TagWithWord> tagsWithWords)
 		{
-			var mockWordProvider = new Mock<IWordSelector>();
+			var mockWordSelectorFactory = new Mock<IWordSelectorFactory>();
+			mockWordSelectorFactory.Setup(wordSelectorFactory => wordSelectorFactory.Create()).Returns(CreateMockWordProvider(tagsWithWords));
+			return mockWordSelectorFactory.Object;
+		}
+
+		private WordSelector CreateMockWordProvider(IEnumerable<TagWithWord> tagsWithWords)
+		{
+			var mockWordProvider = new Mock<WordSelector>();
 
 			mockWordProvider.Setup(
 				wordProvider => wordProvider.CreateTagsWithWords(

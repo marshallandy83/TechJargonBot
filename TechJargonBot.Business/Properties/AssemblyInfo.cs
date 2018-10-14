@@ -36,4 +36,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: InternalsVisibleTo("TechJargonBot.Tests")]
 [assembly: InternalsVisibleTo("TechJargonBot.Console")]
+[assembly: InternalsVisibleTo("TechJargonBot.DebugConsole")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

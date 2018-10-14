@@ -71,5 +71,19 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechJargonBot.Business\TechJargonBot.Business.csproj">
+      <Project>{f51fc76e-1a03-47dc-bff3-f14fd06ab031}</Project>
+      <Name>TechJargonBot.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
+      <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
+      <Name>TechJargonBot.Twitter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj">
+      <Project>{94d608c8-2bd1-4328-ab78-7afd223f841e}</Project>
+      <Name>TechJargonBot.Vocabulary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

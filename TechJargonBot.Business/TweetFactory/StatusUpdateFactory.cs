@@ -1,4 +1,8 @@
 ﻿using System;
+using LinqToTwitter;
+using TechJargonBot.Business.Data;
+using TechJargonBot.Business.WordSelection;
+using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business
 {
@@ -6,9 +10,26 @@ namespace TechJargonBot.Business
 	{
 		internal class StatusUpdateFactory : TweetFactory
 		{
-			public override String CreateTweet(Generator sentenceGenerator)
+			public StatusUpdateFactory(TwitterContext twitterContext)
+				: base(
+					twitterContext: twitterContext,
+					sentenceType: new SentenceTemplateType.Status(),
+					wordSelectorFactory: new AnyWordSelectorFactory())
 			{
-				return sentenceGenerator.Generate();
+			}
+
+			public override String SendTweet()
+			{
+				String statusUpdate = SentenceGenerator.Generate("Everybody talks about [doing1] the [things] but nobody ever mentions [doing1] the [things].").Text;
+
+				PostStatusUpdate(statusUpdate);
+
+				return statusUpdate;
+			}
+
+			private async void PostStatusUpdate(String sentence)
+			{
+				await TwitterContext.TweetAsync(sentence);
 			}
 		}
 	}

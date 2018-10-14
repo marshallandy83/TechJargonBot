@@ -1,7 +1,5 @@
 ﻿using System;
-using Moq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary.Tags;
 using Xunit;
 
 namespace TechJargonBot.Business
@@ -19,7 +17,11 @@ namespace TechJargonBot.Business
 		{
 			Assert.Equal(
 				expected: expectedString,
-				actual: new RegularStringFormatter().FormatString(inputString, new TagString(tag, tag)));
+				actual:
+					new RegularStringFormatter()
+					.FormatString(
+						inputString,
+						new TagString(tag, tag)));
 		}
 	}
 }

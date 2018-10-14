@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimingHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -75,6 +76,10 @@
     <ProjectReference Include="..\TechJargonBot.Business\TechJargonBot.Business.csproj">
       <Project>{f51fc76e-1a03-47dc-bff3-f14fd06ab031}</Project>
       <Name>TechJargonBot.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
+      <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
+      <Name>TechJargonBot.Twitter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

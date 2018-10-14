@@ -2,24 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Business.WordSelection;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {
 	public class Generator
     {
-		private readonly ISentenceProvider _sentenceProvider;
-		private readonly IWordSelector _wordSelector;
+		private readonly ISentenceTemplateProvider _sentenceTemplateProvider;
+		private readonly IWordSelectorFactory _wordSelectorFactory;
 		private readonly IStringFormatter _stringFormatter;
 		private readonly TagExtractor _tagExtractor;
 
 		internal Generator(
-			ISentenceProvider sentenceProvider,
-			IWordSelector wordSelector,
+			ISentenceTemplateProvider sentenceProvider,
+			IWordSelectorFactory wordSelectorFactory,
 			IStringFormatter stringFormatter)
 		{
-			_sentenceProvider = sentenceProvider;
-			_wordSelector = wordSelector;
+			_sentenceTemplateProvider = sentenceProvider;
+			_wordSelectorFactory = wordSelectorFactory;
 			_stringFormatter = stringFormatter;
 
 			_tagExtractor =
@@ -27,33 +29,38 @@ namespace TechJargonBot.Business
 					tagFactory: new TagFactory());
 		}
 
-		public String Generate()
+		internal Sentence Generate()
 		{
-			return Generate(_sentenceProvider.GetSentence());
+			return Generate(_sentenceTemplateProvider.GetSentenceTemplate());
 		}
 
-		public String Generate(String sentence)
+		internal Sentence Generate(String sentenceTemplate)
 		{
-			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentence);
+			IEnumerable<Tag> tags = _tagExtractor.ExtractTags(sentenceTemplate);
 
 			List<TagWithWord> tagsWithRandomWords =
-				_wordSelector.CreateTagsWithWords(tags).ToList();
+				_wordSelectorFactory.Create()
+					.CreateTagsWithWords(tags).ToList();
 
 			return
-				RemoveHashesFromInsideHashtags(
-					ReplaceTagsWithRandomWords(
-						sentence,
-						tagsWithRandomWords));
+				new Sentence(
+					tagsWithWords:
+						tagsWithRandomWords,
+					text:
+						RemoveHashesFromInsideHashtags(
+							ReplaceTagsWithRandomWords(
+								sentenceTemplate,
+								tagsWithRandomWords)));
 		}
 
 		private String ReplaceTagsWithRandomWords(
-			String sentence,
+			String sentenceTemplate,
 			IEnumerable<TagWithWord> tagsWithRandomWords)
 		{
 			foreach (var tagWithWord in tagsWithRandomWords)
-				sentence = tagWithWord.ReplaceWordInSentence(sentence);
+				sentenceTemplate = tagWithWord.ReplaceWordInSentence(sentenceTemplate);
 
-			return sentence;
+			return sentenceTemplate;
 		}
 
 		private String RemoveHashesFromInsideHashtags(String sentence)

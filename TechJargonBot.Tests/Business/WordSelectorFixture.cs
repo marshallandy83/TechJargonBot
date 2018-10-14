@@ -1,7 +1,7 @@
 ﻿using Moq;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary.Tags;
 
-namespace TechJargonBot.Business
+namespace TechJargonBot.Business.WordSelection
 {
 	public class WordSelectorFixture
 	{

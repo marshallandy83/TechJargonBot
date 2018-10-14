@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Linq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 
 namespace TechJargonBot.Business
 {
 	internal class RandomWordProvider : IWordProvider
 	{
 		private readonly IDataProvider _dataProvider;
-		private readonly Random _randomNumberGenerator;
+		private readonly Func<Word, Boolean> _isSuitable;
 
 		public RandomWordProvider(
 			IDataProvider dataProvider,
-			Random randomNumberGenerator)
+			Func<Word, Boolean> wordSuitabilityPredicate)
 		{
 			_dataProvider = dataProvider;
-			_randomNumberGenerator = randomNumberGenerator;
+			_isSuitable = wordSuitabilityPredicate;
 		}
 
 		public Word GetNewWord(Tag tag)
@@ -24,9 +24,10 @@ namespace TechJargonBot.Business
 				_dataProvider
 					.GetWordLists()
 					.SelectMany(words => words)
+					.Where(word => _isSuitable(word))
 					.Where(word => word.Forms.Any(form => form.HasTag(tag)))
 					.Where(word => tag.IsSuitable(word))
-					.PickAtRandom(_randomNumberGenerator);
+					.PickAtRandom();
 		}
 	}
 }

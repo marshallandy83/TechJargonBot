@@ -6,13 +6,12 @@ namespace TechJargonBot.Business
 {
 	internal static class Extensions
 	{
-		internal static T PickAtRandom<T>(
-			this IEnumerable<T> collection,
-			Random randomNumberGenerator)
-		{
-			return
-				collection
-					.ElementAt(randomNumberGenerator.Next(collection.Count()));
-		}
+		private static Random _randomNumberGenerator = new Random();
+
+		internal static T PickAtRandom<T>(this IEnumerable<T> collection) =>
+			collection.ElementAt(_randomNumberGenerator.Next(collection.Count()));
+
+		internal static IEnumerable<T> PickSomeAtRandom<T>(this IEnumerable<T> collection) =>
+			collection.Where(item => new[] { true, false }.PickAtRandom());
 	}
 }

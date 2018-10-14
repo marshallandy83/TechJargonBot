@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Moq;
-using TechJargonBot.Business.Data;
-using TechJargonBot.Business.Data.Tags;
+using TechJargonBot.Vocabulary;
+using TechJargonBot.Vocabulary.Tags;
 using Xunit;
 
 namespace TechJargonBot.Business
@@ -100,13 +99,14 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[done1]", "[done]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch)
 				});
 		}
@@ -128,13 +128,14 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[done1]", "[done]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch),
 					CreateTagWithWord("[done]", _delete)
 				});
@@ -153,13 +154,14 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing]", "[Doing]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 				});
 		}
@@ -177,22 +179,24 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[Doing1]", "[Doing]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: false),
+							isForHashtag: false,
+							isForMandatoryWord: false),
 						word: _patch),
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing1]", "[Doing]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 				});
 		}
@@ -210,41 +214,44 @@ namespace TechJargonBot.Business
 				new TagWithWord[]
 				{
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Doing]", "[Doing]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _patch),
 					new TagWithWord(
-						stringFormatter: new RegularStringFormatter(),
+						formatString: (word, tagString) => new RegularStringFormatter().FormatString(word, tagString),
 						tag: new Tag(
 							tagString: new TagString("[#Things]", "[Things]"),
 							identifier: 1,
 							wordSuitabilityPredicate: (_) => true,
 							tagReplacer: new TagReplacer(),
-							isForHashtag: true),
+							isForHashtag: true,
+							isForMandatoryWord: false),
 						word: _server),
 				});
 		}
 
-		private static Word _patch => new Verb(new String[] { "patch", "patching", "patched", "patches" });
-		private static Word _delete => new Verb(new String[] { "delete", "deleting", "deleted", "deletes" });
-		private static Word _server => new Noun(new String[] { "a", "server", "servers" });
-		private static Word _authenticated => new Adjective(new String[] { "an", "authenticated" });
+		private static Word _patch => new Verb(new String[] { "patch", "patching", "patched", "patches", "false" });
+		private static Word _delete => new Verb(new String[] { "delete", "deleting", "deleted", "deletes", "false" });
+		private static Word _server => new Noun(new String[] { "a", "server", "servers", "false" });
+		private static Word _authenticated => new Adjective(new String[] { "an", "authenticated", "false" });
 
 		private TagWithWord CreateTagWithWord(String tagWord, Word word)
 		{
 			return
 				new TagWithWord(
-					new RegularStringFormatter(),
+					(wordToFormat, tagString) => new RegularStringFormatter().FormatString(wordToFormat, tagString),
 					new Tag(
 						tagString: new TagString(tagWord, tagWord),
 						wordSuitabilityPredicate: (_) => true,
 						tagReplacer: new TagReplacer(),
-						isForHashtag: false),
+						isForHashtag: false,
+						isForMandatoryWord: false),
 					word);
 		}
 

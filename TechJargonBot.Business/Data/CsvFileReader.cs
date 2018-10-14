@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using TechJargonBot.Vocabulary;
 
 namespace TechJargonBot.Business.Data
 {
@@ -10,7 +11,7 @@ namespace TechJargonBot.Business.Data
 			String wordTypeName,
 			Func<String[], Word> createWord)
 		{
-			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{wordTypeName}\List.csv"))
+			using (var reader = new StreamReader($@"..\..\..\TechJargonBot.Business\Data\{wordTypeName}List.csv"))
 			{
 				SkipHeaders(reader);
 
