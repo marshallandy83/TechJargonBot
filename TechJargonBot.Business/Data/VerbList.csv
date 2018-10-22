@@ -196,7 +196,7 @@ print out,printing out,printed out,prints out,false
 disrupt,disrupting,disrupted,disrupts,false
 improve,improving,improved,improves,false
 monitor,monitoring,monitored,monitors,false
-offset,offsetting,offseted,offsets,false
+offset,offsetting,offset,offsets,false
 aggregate,aggregating,aggregated,aggregates,false
 interrupt,interrupting,interrupted,interrupts,false
 dispatch,dispatching,dispatched,dispatches,false
@@ -210,3 +210,4 @@ containerise,containerising,containerised,containerises,true
 transpile,transpiling,transpiled,transpiles,true
 cold start,cold starting,cold started,cold starts,false
 root,rooting,rooted,roots,false
+transcode,transcoding,transcoded,transcodes,true
