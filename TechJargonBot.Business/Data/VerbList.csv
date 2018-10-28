@@ -133,7 +133,7 @@ refine,refining,refined,refines,false
 cut,cutting,cut,cuts,false
 recycle,recycling,recycled,recycles,false
 stratify,stratifying,stratified,stratifies,false
-hack,hacking,hacked,hacks,true
+hack,hacking,hacked,hacks,false
 translate,translating,translated,translates,false
 brute force,brute forcing,brute forced,brute forces,false
 mock,mocking,mocked,mocks,false

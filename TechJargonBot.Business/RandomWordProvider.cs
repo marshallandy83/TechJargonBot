@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Common;
 using TechJargonBot.Vocabulary;
 using TechJargonBot.Vocabulary.Tags;
 

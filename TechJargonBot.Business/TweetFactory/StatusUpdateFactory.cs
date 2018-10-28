@@ -20,7 +20,7 @@ namespace TechJargonBot.Business
 
 			public override String SendTweet()
 			{
-				String statusUpdate = SentenceGenerator.Generate("Everybody talks about [doing1] the [things] but nobody ever mentions [doing1] the [things].").Text;
+				String statusUpdate = SentenceGenerator.Generate().Text;
 
 				PostStatusUpdate(statusUpdate);
 
