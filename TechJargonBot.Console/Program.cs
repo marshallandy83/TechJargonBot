@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Threading;
+using Common.ItemSelection;
 using LinqToTwitter;
 using TechJargonBot.Business;
 
@@ -23,26 +24,29 @@ namespace TechJargonBot.Console
 
 		private static TimingHandler _timingHandler =
 			new TimingHandler(
-				minimumTimeBeforeNextTweet: new TimeSpan(hours: 0, minutes: 45, seconds: 0),
-				maximumTimeBeforeNextTweet: new TimeSpan(hours: 1, minutes: 30, seconds: 0));
+				minimumTimeBeforeNextTweet: new TimeSpan(hours: 1, minutes: 0, seconds: 0),
+				maximumTimeBeforeNextTweet: new TimeSpan(hours: 2, minutes: 0, seconds: 0));
 
-		private static readonly TweetFactory[] TweetFactories = new TweetFactory[]
-		{
-			//new TweetFactory.StatusUpdateFactory(_twitterContext),
-			new TweetFactory.ReplyFactory(
-				_twitterContext,
-				new Twitter.AllWordsQueryFactory(),
-				new Twitter.TweetFinder(_twitterContext))
-		};
+		private static ISelector<TweetFactory> _tweetFactorySelector =
+			new Common.ItemSelection.Weighted.Selector<TweetFactory>(
+				new Common.ItemSelection.Weighted.Item<TweetFactory>[]
+				{
+					new Common.ItemSelection.Weighted.Item<TweetFactory>(
+						contents: new TweetFactory.StatusUpdateFactory(_twitterContext),
+						weighting: 1),
+					new Common.ItemSelection.Weighted.Item<TweetFactory>(
+						contents: new TweetFactory.ReplyFactory(
+							_twitterContext,
+							new Twitter.AllWordsQueryFactory(),
+							new Twitter.TweetFinder(_twitterContext)),
+						weighting: 7)
+				});
 
 		static void Main(String[] args)
 		{
 			while (true)
 			{
-				String tweet =
-					TweetFactories
-					.PickAtRandom()
-					.SendTweet();
+				String tweet = _tweetFactorySelector.Select().SendTweet();
 
 				DateTime nextTweetTime = _timingHandler.GetNextTweetTime();
 

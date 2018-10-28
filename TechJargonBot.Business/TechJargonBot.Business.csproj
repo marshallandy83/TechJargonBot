@@ -63,7 +63,6 @@
   <ItemGroup>
     <Compile Include="DataProvider.cs" />
     <Compile Include="Data\IDataReader.cs" />
-    <Compile Include="Extensions.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="Data\CsvFileReader.cs" />
     <Compile Include="IDataProvider.cs" />
@@ -86,6 +85,10 @@
     <Compile Include="WordSelection\AnyWordSelector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1502bce6-fac6-46a5-8b56-8d6321dafce1}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TechJargonBot.Twitter\TechJargonBot.Twitter.csproj">
       <Project>{7db49519-11eb-439c-a2dc-241d4bd1c730}</Project>
       <Name>TechJargonBot.Twitter</Name>

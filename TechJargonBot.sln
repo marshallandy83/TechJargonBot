@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Twitter", "Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechJargonBot.Vocabulary", "TechJargonBot.Vocabulary\TechJargonBot.Vocabulary.csproj", "{94D608C8-2BD1-4328-AB78-7AFD223F841E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1502BCE6-FAC6-46A5-8B56-8D6321DAFCE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Tests", "Common.Tests\Common.Tests.csproj", "{3F2DD84B-4211-45B2-BAE5-666199DCC751}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94D608C8-2BD1-4328-AB78-7AFD223F841E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1502BCE6-FAC6-46A5-8B56-8D6321DAFCE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1502BCE6-FAC6-46A5-8B56-8D6321DAFCE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1502BCE6-FAC6-46A5-8B56-8D6321DAFCE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1502BCE6-FAC6-46A5-8B56-8D6321DAFCE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2DD84B-4211-45B2-BAE5-666199DCC751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2DD84B-4211-45B2-BAE5-666199DCC751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2DD84B-4211-45B2-BAE5-666199DCC751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2DD84B-4211-45B2-BAE5-666199DCC751}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

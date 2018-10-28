@@ -73,6 +73,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1502bce6-fac6-46a5-8b56-8d6321dafce1}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TechJargonBot.Business\TechJargonBot.Business.csproj">
       <Project>{f51fc76e-1a03-47dc-bff3-f14fd06ab031}</Project>
       <Name>TechJargonBot.Business</Name>

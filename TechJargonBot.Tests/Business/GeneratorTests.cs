@@ -248,7 +248,7 @@ namespace TechJargonBot.Business
 					(wordToFormat, tagString) => new RegularStringFormatter().FormatString(wordToFormat, tagString),
 					new Tag(
 						tagString: new TagString(tagWord, tagWord),
-						wordSuitabilityPredicate: (_) => true,
+						wordSuitabilityPredicate: w => true,
 						tagReplacer: new TagReplacer(),
 						isForHashtag: false,
 						isForMandatoryWord: false),
