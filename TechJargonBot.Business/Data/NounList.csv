@@ -253,3 +253,5 @@ a,git repository,git repositories,true
 a,JPEG,JPEGs,true
 a,service pack,service packs,true
 a,virus,viruses,false
+a,distribution,distributions,false
+a,distro,distros,true
