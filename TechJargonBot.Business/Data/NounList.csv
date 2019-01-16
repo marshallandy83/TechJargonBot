@@ -1,4 +1,4 @@
-article,singular,plural
+article,singular,plural,domainSpecific
 the,credentials,credentials,false
 a,repository,repositories,false
 a,farm,farms,false
