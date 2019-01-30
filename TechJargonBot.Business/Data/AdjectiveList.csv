@@ -286,3 +286,6 @@ a,Python,false
 a,RAID,false
 a,VGA,true
 a,UNIX,true
+an,intra-procedural,true
+a,built-in,false
+a,Win32,true
