@@ -255,3 +255,4 @@ a,service pack,service packs,true
 a,virus,viruses,false
 a,distribution,distributions,false
 a,distro,distros,true
+a,primitive,primitives,false
